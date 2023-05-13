@@ -1,0 +1,74 @@
+/* PROPERTIES */
+:root {
+    --clr-primary-400 :hsl(238, 37%, 14%);
+
+    --ff-primary: 'Poppins', sans-serif;
+    --ff-body: var(--ff-primary);
+    --ff-heading: var(--ff-primary);
+
+    --fw-regular: 400;
+    --fw-semi-bold: 500;
+    --fw-bold: 700;
+
+    --fs-100: 0.75rem; /* 12px */
+    --fs-200: 0.8125rem; /* 13px */
+    --fs-300: 0.875rem; /* 14px */
+    --fs-400: 0.9375rem; /* 15px */
+    --fs-500: 1rem; /* 16px */ 
+    --fs-600: 1.25rem; /* 20px */
+    --fs-650: 1.5625rem; /* 25px */
+    --fs-700: 1.875rem; /* 30px */
+    --fs-750: 2.1875rem; /* 35px */
+    --fs-800: 2.5rem; /* 40px */
+    --fs-850: 2.8125rem; /* 45px */
+    --fs-900: 3.125rem; /* 50px */
+
+    --fs-primary-heading: var(--fs-750);
+}
+
+/* RESETS */
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* html {
+    color-scheme: dark light;
+} */
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE MEDIA */
+img, 
+picture, 
+svg, 
+video {
+    max-width: 100%;
+    display: block;
+}
+
+input, 
+textarea, 
+button, 
+select {
+    font: inherit;
+}

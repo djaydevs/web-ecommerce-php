@@ -1,0 +1,14 @@
+@import url("props_resets.css");
+
+body {
+  position: relative;
+  top: 5em;
+  left: 17em;
+}
+
+p {
+  font-size: var(--fs-900);
+  line-height: 1.5;
+}
+
+  
