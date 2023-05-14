@@ -1,6 +1,8 @@
 /* PROPERTIES */
 :root {
-    --clr-primary-400 :hsl(238, 37%, 14%);
+    --clr-primary-color:hsl(40, 93%, 49%);
+    
+    --clr-neutral-100: hsl(0, 0%, 95%);
 
     --ff-primary: 'Poppins', sans-serif;
     --ff-body: var(--ff-primary);
