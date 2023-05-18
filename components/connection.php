@@ -3,14 +3,15 @@
 <?php
 
     $serverName = "localhost";
-    $userName = "root"
-    $pass = "";
+    $userName = "root";
+    $password = "";
     $dbName = "cafe_db";
 
-    $conn =  mysqli_connect($serverName, $userName, $pass, $dbName);
+    $conn =  mysqli_connect($serverName, $userName, $password, $dbName);
 
     if (!$conn) {
         die('Connection Failed'. mysqli_connect_error());
     } 
+    echo "connected";
 
 ?>
