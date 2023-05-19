@@ -16,7 +16,7 @@ error_reporting(0);
         $image = mysqli_real_escape_string($conn, $_FILES['image']['name']) ;
         $image_size = $_FILES['image']['size'];
         $image_tmp_name = $_FILES['image']['tmp_name'];
-        $image_folder = '../images/'.$image;
+        $image_folder = '../assets/images/'.$image;
 
         $sqlSelect = "SELECT * FROM products WHERE name = '$prodName'";
         $result = mysqli_query($conn, $sqlSelect);
@@ -69,7 +69,7 @@ error_reporting(0);
         $output = mysqli_query($conn, $query);  
         
         $filename = $output->fetch_assoc();    
-        unlink('../images/' . $filename['image']);
+        unlink('../assets/images/' . $filename['image']);
         $deleteQuery = "DELETE FROM products WHERE product_ID = $id"; 
         $result = mysqli_query($conn, $deleteQuery);
         header('location:products.php');
@@ -135,7 +135,7 @@ error_reporting(0);
     ?>
     <div class="box">
         <div class="price">$<?php echo $row['price']; ?>/-</div>
-        <img src="../images/<?php echo $row['image']; ?>" alt="">
+        <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
         <div class="name"><?php echo $row['name']; ?></div>       
         <div class="category"><?php echo $row['category']; ?></div>
         <div class="details"><?php echo $row['description']; ?></div>
