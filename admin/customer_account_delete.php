@@ -4,7 +4,7 @@
     if(isset($_GET['deleteid'])){
         $id = $_GET['deleteid'];
 
-        $query = "DELETE FROM customer WHERE customer_id='$id'";
+        $query = "DELETE FROM users WHERE id='$id'";
         $query_run = mysqli_query($conn, $query);
 
         if($query_run){
