@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/login.css">
     <style>
         .login-container form{
-            border: var(--border;);
+            border: var(--border);
             border: 1px solid black;
             margin: auto; 
             margin-top:100px;
@@ -24,7 +24,7 @@
         }
         .login-container form .login-box{
             margin: 0.7rem 0;
-            border: var(--border;);
+            border: var(--border);
             padding: 5px;
             font-size: 1rem;
         }
