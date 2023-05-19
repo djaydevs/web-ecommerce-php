@@ -1,0 +1,133 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Form style for Login, Sign up , forgot password and change password */
+.form-section {
+    position: relative;
+    min-height: 100vh;
+    z-index: 0;
+    padding: 40px 40px;
+    margin-top: 100px;
+}
+
+.container {
+    max-width: 890px;
+    margin: 0 auto;
+}
+.content {
+    flex-basis: 60%;
+    -webkit-flex-basis: 60%;
+    box-sizing: border-box;
+    padding: 3em 3.5em;
+    background: #fff;
+    box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.4);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.form-section .main{
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.form-section form {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.intent{
+    text-align: center;
+}
+
+.form-section h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: #3b3663;
+}
+
+.form-section input {
+    outline: none;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #999;
+    text-align: left;
+    padding: 14px 20px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: transparent;
+    border: 1px solid #e5e5e5;
+    transition: 0.3s all ease;
+}
+
+.form-section input:focus {
+    border-color: #0e7db1;
+}
+
+.form-section button {
+    font-size: 18px;
+    color: #fff;
+    width: 100%;
+    background: #0d5ff8;
+    border: none;
+    padding: 14px 15px;
+    font-weight: 500;
+    transition: .3s ease;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -ms-transition: .3s ease;
+    -o-transition: .3s ease;
+}
+
+.form-section button:hover {
+    background: #4ca356;
+}
+
+.g-recaptcha{
+    padding-bottom: 15px;
+}
+
+/* Aler style */
+.alert {    
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    margin: 1rem 0;
+}
+
+.alert-success {
+    background-color: #42ba96;
+}
+
+.alert-danger {
+    background-color: #fc5555;
+}
+
+.alert-info {
+    background-color: #2E9AFE;
+}
+
+.alert-warning {
+    background-color: #ff9966;
+}
+
