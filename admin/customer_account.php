@@ -99,10 +99,11 @@
                                     <td><?= $row['customer_lastname']; ?></td>
                                     <td><?= $row['customer_email']; ?></td>
                                     <td><?= $row['customer_mobile_number']; ?></td>
-                                    <form action="customer_account_delete.php" method="post">
-                                        <input type="hidden" name="id" value="<?= $row['customer_id']; ?>">
-                                        <td><input type="submit" name="delete" class="delete-btn"></input></td>
-                                    </form>
+                                    <td>
+                                        <button class="delete-btn">
+                                            <a href="customer_account_delete.php?deleteid=<?= $row['customer_id']; ?>" onclick="return confirm('Delete this account?');">Delete</a>
+                                        </button>
+                                    </td>
                                 </tr>
                             <?php
                             }

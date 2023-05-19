@@ -1,8 +1,8 @@
 <?php
     $conn = mysqli_connect("localhost", "root", "", "cafe_db");
 
-    if(isset($_POST['delete'])){
-        $id = $_POST['id'];
+    if(isset($_GET['deleteid'])){
+        $id = $_GET['deleteid'];
 
         $query = "DELETE FROM customer WHERE customer_id='$id'";
         $query_run = mysqli_query($conn, $query);
