@@ -126,7 +126,7 @@
                             <input type="password" class="password" name="password" placeholder="Enter Your Password" required>
                             <input type="password" class="confirm-password" name="confirm-password" placeholder="Enter Your Confirm Password" required>
                             <div class="g-recaptcha"  data-sitekey="6Lfj5hsmAAAAAN67rJgsNY-OYww_rzHIJKytK-lc"></div>
-                            <button name="register" class="btn" type="submit">Register</button>
+                            <button name="register" id="save" class="btn" type="submit">Register</button>
                         </form>
                         <div class="intent">
                             <p>Already have and account ? <a href="login.php">Login</a>.</p>
@@ -137,5 +137,14 @@
             <!-- End of form -->
         </div>
     </section>
+<script> 
+    $(document).on('click','#save',function(){
+        var response = grecaptcha.getResponse();
+        if(response.length==0){
+            alert("Please verify you are not a robot !");
+            return false;
+        }
+    });
+</script>  
 </body>
 </html>
