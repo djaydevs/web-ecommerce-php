@@ -29,7 +29,7 @@ error_reporting(0);
         $image = mysqli_real_escape_string($conn, $_FILES['image']['name']) ;
         $image_size = $_FILES['image']['size'];
         $image_tmp_name = $_FILES['image']['tmp_name'];
-        $image_folder = '../images/'.$image;
+        $image_folder = '../assets/images/'.$image;
         $old_img = $_POST['old_image'];
 
         $update = "UPDATE products SET `name` = '$prodName', category = '$category', price = '$price', description = '$details' WHERE product_ID = '$id'";
@@ -48,7 +48,7 @@ error_reporting(0);
                 if ($result) {
                     move_uploaded_file($image_tmp_name, $image_folder);
                     // $filename = $result->fetch_assoc();    
-                    unlink('../images/' .$old_img);
+                    unlink('../assets/images/' .$old_img);
                     $message[] = 'Image upadated successfully';
                 }                
             }
@@ -87,7 +87,7 @@ error_reporting(0);
     <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="old_image" value="<?php echo $row['image']; ?>">
         <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
-        <img src="../images/<?php echo $row['image']; ?>" alt="">
+        <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
         <input type="text" name="name" placeholder = "Enter product name" required class="box" value="<?php echo $row['name']; ?>">
         <input type="text" name="price" min="0" placeholder = "Enter product price" required class="box" value="<?php echo $row['price']; ?>">
         <select name="product-category" class="box" required>
