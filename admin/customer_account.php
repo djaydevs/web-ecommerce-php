@@ -65,8 +65,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
+                            <th>Fullname</th>
                             <th>Email</th>
                             <th>Mobile Number</th>
                             <th>Delete</th>
@@ -87,21 +86,20 @@
                         } 
 
                         // query 
-                        $query = "SELECT * FROM customer";
+                        $query = "SELECT * FROM users";
                         $query_run = mysqli_query($conn, $query);
 
                         if (mysqli_num_rows($query_run) > 0) {
                             foreach ($query_run as $row) {
                                 ?>
                                 <tr>
-                                    <td><?= $row['customer_id']; ?></td>
-                                    <td><?= $row['customer_firstname']; ?></td>
-                                    <td><?= $row['customer_lastname']; ?></td>
-                                    <td><?= $row['customer_email']; ?></td>
-                                    <td><?= $row['customer_mobile_number']; ?></td>
+                                    <td><?= $row['id']; ?></td>
+                                    <td><?= $row['name']; ?></td>
+                                    <td><?= $row['email']; ?></td>
+                                    <td><?= $row['number']; ?></td>
                                     <td>
                                         <button class="delete-btn">
-                                            <a href="customer_account_delete.php?deleteid=<?= $row['customer_id']; ?>" onclick="return confirm('Delete this account?');">Delete</a>
+                                            <a href="customer_account_delete.php?deleteid=<?= $row['id']; ?>" onclick="return confirm('Delete this account?');">Delete</a>
                                         </button>
                                     </td>
                                 </tr>
