@@ -217,3 +217,370 @@ header .profile .name{
 .padding-block-900 {
     padding-block: 5rem;
 }
+
+
+/* CATEGORY UI */
+
+.title {
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: black;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
+
+.home-category .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-category .box-container .box {
+    border: .2rem solid black;
+    padding: 1rem;
+    text-align: center;
+}
+
+.home-category .box-container .box img {
+    width: 100%;
+    height: 8rem;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.home-category .box-container .box h3 {
+   font-size: 2rem;
+   margin-top: 1.5rem;
+   color:black;
+   text-transform: capitalize;
+   margin-top: .8rem;
+}
+
+.home-category .box-container .box:hover {
+    background-color: orange;
+}
+
+.home-category .box-container .box:hover img {
+    filter: invert();
+}
+
+.home-category .box-container .box:hover h3 {
+   color: white;    
+ }
+
+
+/* DISPLAY PRODUCTS */
+
+.empty {
+    border: .2rem solid black;
+    padding: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    color: red;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+.products .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20rem);
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.products .box-container .box {
+    padding: 1rem;
+    position: relative;
+    border: .2rem solid black;
+}
+
+.products .box-container .box img {
+    height: 15rem;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+
+.products .box-container .box .fa-eye,
+.products .box-container .box .fa-shopping-cart{
+   position: absolute;
+   top:.5rem;
+   height: 2.5rem;
+   width: 2.5rem;
+   line-height: 2.3rem;
+   border:.1rem solid orange;
+   background-color: white;
+   cursor: pointer;
+   font-size: 1.3rem;
+   color:orange;
+   text-align: center;
+}
+
+.products .box-container .box .fa-eye:hover,
+.products .box-container .box .fa-shopping-cart:hover{
+   background-color: orange;
+   color:brown;
+}
+
+.products .box-container .box .fa-eye{
+    left: 1rem;
+ }
+ 
+ .products .box-container .box .fa-shopping-cart{
+    right: 1rem;
+ }
+
+.products .box-container .box .cat {
+    font-size: 1rem;
+    color: orange;
+}
+
+.products .box-container .box .cat:hover {
+    color: black;
+    text-decoration: underline;
+}
+ 
+.products .box-container .box .name {
+    font-size: 1.2rem;
+    color: black;
+    margin: .5rem 0;
+}
+
+.products .box-container .box .flex {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.products .box-container .box .flex .price {
+    font-size: 1.1rem;
+    color: black;
+    margin-right: auto;
+}
+
+.products .box-container .box .flex .price span{
+    font-size: 1.2rem;
+    color: brown;
+}
+
+.products .box-container .box .flex .qty {
+    padding: .2rem;
+    border: .1rem solid black;
+    font-size: 1rem;
+    color: black;
+}
+
+/* QUICK VIEW */
+
+.quick-view .box {
+    margin: 0 auto;
+    max-width: 25rem;
+    border: .1rem solid black;
+    padding: 1rem;
+}
+
+.quick-view .box img {
+    width: 100%;
+    height: 15rem;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.quick-view .box .cat {
+    font-size: 1.1rem;
+    color: orangered;
+}
+
+.quick-view .box .cat:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.quick-view .box .name {
+    font-size: 1.3rem;
+    color: black;
+    margin: .5rem 0;
+}
+
+.quick-view .box .details {
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+    font-size: .8rem;
+    line-height: 1.5;
+}
+
+.quick-view .box .btn-add-to-cart {
+    width: 100%;
+    border: .1rem solid black;
+    padding: .8rem 1rem;
+    font-size: 1rem;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    text-transform: uppercase;
+}
+
+.quick-view .box .btn-add-to-cart:hover {
+    background-color: orange;
+    color: white;
+}
+
+.quick-view .box .flex {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.quick-view .box .flex .price {
+    font-size: 1.3rem;
+    color: black;
+    margin-right: auto;
+}
+
+.quick-view .box .flex .price span{
+    font-size: 1.4rem;
+    color: brown;
+}
+
+.quick-view .box .flex .qty {
+    padding: .2rem;
+    border: .1rem solid black;
+    font-size: 1rem;
+    color: black;
+}
+
+/* CART LAYOUT */
+
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    flex-flow: column;
+    background-color: orange;
+    min-height: 15rem;
+ }
+
+.heading h3 {
+    font-size: 2rem;
+    color:white;
+    text-transform: capitalize;
+ }
+
+.heading p{
+   font-size: 1rem;
+   color:wheat;
+}
+
+.heading p a{
+   color:yellow;
+}
+
+.heading p a:hover{
+   text-decoration: underline;
+   color:white;
+}
+
+.title{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    color:black;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+ }
+
+.disabled {
+    user-select: none;
+    opacity: .5;
+    pointer-events: none;
+}
+
+.products .box-container .box .fa-times,
+.products .box-container .box .fa-edit {
+   position: absolute;
+   top:.5rem;
+   height: 2.5rem;
+   width: 2.5rem;
+   line-height: 2.3rem;
+   border:.1rem solid orange;
+   background-color: white;
+   cursor: pointer;
+   font-size: 1.3rem;
+   color:orange;
+   text-align: center;
+}
+
+.products .box-container .box .fa-times:hover{
+    background-color: orange;
+    color:brown;
+ }
+ 
+ .products .box-container .box .fa-times{
+     right: 1rem;
+  }
+
+.products .box-container .box .fa-edit:hover{
+   background-color: orange;
+   color:brown;
+}
+ 
+.products .box-container .box .fa-edit{
+    right: 1rem;
+    top: 19rem;
+ }
+
+.products .box-container .box .flex .qty {
+   padding: .2rem;
+   border: .1rem solid black;
+   font-size: 1rem;
+   color: black;
+}
+
+ .products .box-container .box .sub-total{
+   margin-top: 1rem;
+   font-size: 1rem;
+   color:gray;
+}
+ 
+.products .box-container .box .sub-total span{
+   color:red;
+}
+ 
+.products .more-btn{
+   margin-top: 1rem;
+   text-align: center;
+}
+ 
+.products .cart-total{
+   display: flex;
+   align-items: center;
+   gap:1.5rem;
+   flex-wrap: wrap;
+   margin-top: 3rem;
+   justify-content: center;
+   border: .1rem solid black;
+   padding:1rem;
+ }
+ 
+.products .cart-total p{
+   font-size: 1.5rem;
+   color:black;
+}
+
+.products .cart-total p span{
+   color:red;
+}
+ 
+.products .cart-total .btn{
+   margin-top: 0;
+}
