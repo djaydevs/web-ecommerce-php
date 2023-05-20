@@ -3,6 +3,12 @@
     require 'components/connection.php';
     $message ="";
 
+    if(isset($_SESSION['user_id'])){
+        $user_id = $_SESSION['user_id'];
+     }else{
+        $user_id = '';
+     };
+
     if(isset($_GET['verification'])){
         // Check if the code exists in the 'users' table
         if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE code='{$_GET['verification']}'")) > 0) {
@@ -11,7 +17,7 @@
             $query = mysqli_query($conn, "UPDATE users SET code='' WHERE code='{$_GET['verification']}'");
 
             if ($query) {
-                $message = "<div class='alert alert-success'>Account verification has been successfully completed!.</div>";
+                $message = "<div class='alert alert-success'>Account verification has been successfully completed!</div>";
                 echo "<script>
                     setTimeout(function() {
                         var messageElement = document.querySelector('.alert-success');
@@ -40,7 +46,7 @@
 
             // Set the session variable and redirect to the home page
             if(empty($row['code'])){
-                $_SESSION['SESSION_EMAIL'] = $email;
+                $_SESSION['user_id'] = $row['id'];
                 header("Location: index.php");
             } else{
                 // Display an error message if the account is not verified
