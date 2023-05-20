@@ -1,5 +1,4 @@
 @import url('props_resets.css');
-
 /* LOADING DIV */
 .loading-page {
     position: absolute;
@@ -77,6 +76,63 @@
 .nav-list a:focus {
   color: var(--clr-primary-color);
 }
+
+/* STYLE FOR PROFILE  */
+.btn,
+.delete-btn{
+   margin-top: 1rem;
+   display: inline-block;
+   font-size: 1rem;
+   padding:1rem 2rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   transition: .2s linear;
+}
+
+.btn{
+    background-color: var(--yellow);
+    color:var(--black);
+ }
+
+ .btn:hover,
+.delete-btn:hover{
+   letter-spacing: .2rem;
+}
+
+ .delete-btn{
+    background-color: var(--red);
+    color:var(--white);
+ }
+
+.header .profile{
+    top: 120%; right: 2rem;
+    border: var(--border);
+    background-color: var(--white);
+    padding: 1.5rem;
+    text-align: center;
+    width: 30rem;
+    animation: fadeIn .2s linear;
+    display: none;
+}
+
+@keyframes fadeIn{
+    0%{
+      transform: translateY(1rem);
+   }
+}
+
+.header .profile.active{
+    display: inline-block;
+}
+
+header .profile .name{
+    font-size: 1rem;
+    color:var(--black);
+    margin-bottom: .5rem;
+    margin-bottom: .5rem;
+ }
+
+ /* PROFILE END */
 
 /* BUTTONS */
 .button {

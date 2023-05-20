@@ -30,6 +30,13 @@
     --fs-900: 3.125rem; /* 50px */
 
     --fs-primary-heading: var(--fs-750);
+
+    --yellow:#fed330;
+    --red:#e74c3c;
+    --white:#fff;
+    --black:#222;
+    --light-color:#777;
+    --border: 1px solid var(--black);
 }
 
 /* RESETS */
