@@ -28,7 +28,7 @@
 
         // Check if the email or number already exists in the 'users' table
         if(mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$email}' OR number='{$number}'")) > 0){
-            $message = "<div class='alert alert-danger'>{$email},{$number} - Email or Number already exist !.</div>";
+            $message = "<div class='alert alert-danger'>Email or Number already exist !</div>";
             echo "<script>
                     setTimeout(function() {
                         var messageElement = document.querySelector('.alert-danger');
@@ -69,11 +69,14 @@
 
                         $mail->send();
                         echo 'Message has been sent';
+
+                        
                     } catch (Exception $e) {
                         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                     }
                     echo "</div>";
                     //Display a message that a verification link is send in users email
+                    $name = '';
                     $message = "<div class='alert alert-info'>We've send a verification link on your email address ! </div>";
                 } else{
                     //Display an error message Somethins is wrong with the page
@@ -125,17 +128,17 @@
                     <div class="content">
                         <h2>Sign Up Now</h2>
                         <?php echo $message; ?>
-                        <form action="" method="post">
-                            <input type="text" class="name" id="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['register'])) { echo $name; } ?>" required>
-                            <input type="email" class="email" id="email"name="email" placeholder="Enter Your Email" value="<?php if (isset($_POST['register'])) { echo $email; } ?>" required>
-                            <input type="number" class="number" name="number" placeholder="Enter Your Number" required>
-                            <input type="password" class="password" name="password" placeholder="Enter Your Password" required>
-                            <input type="password" class="confirm-password" name="confirm-password" placeholder="Enter Your Confirm Password" required>
+                        <form action="" method="post" id="register-form">
+                            <input type="text" class="name" id="name" name="name" placeholder="Enter your name" value="<?php if (isset($_POST['register'])) { echo $name; } ?>" required>
+                            <input type="email" class="email" id="email"name="email" placeholder="Enter your email" required>
+                            <input type="number" class="number" name="number" placeholder="Enter your number" required>
+                            <input type="password" class="password" name="password" placeholder="Enter your password" required>
+                            <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm password" required>
                             <div class="g-recaptcha"  data-sitekey="6Lfj5hsmAAAAAN67rJgsNY-OYww_rzHIJKytK-lc"></div>
                             <button name="register" id="save" class="btn" type="submit">Register</button>
                         </form>
                         <div class="intent">
-                            <p>Already have and account ? <a href="login.php">Login</a>.</p>
+                            <p>Already have an account ? <a href="login.php">Login</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -152,11 +155,5 @@
         }
     });
 </script>
-<?php if ($result) { ?>
-  <script>
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-  </script>
-<?php } ?>  
 </body>
 </html>
