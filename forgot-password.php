@@ -12,6 +12,12 @@
     require 'components/connection.php';
     $message ="";
 
+    if(isset($_SESSION['user_id'])){
+        $user_id = $_SESSION['user_id'];
+     }else{
+        $user_id = '';
+     };
+
     if(isset($_POST['send'])) {
         $email = $email = mysqli_real_escape_string($conn, $_POST['email']);
         $code = mysqli_real_escape_string($conn, md5(rand()));

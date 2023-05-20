@@ -12,6 +12,12 @@
     require 'components/connection.php';
     $message ="";
 
+    if(isset($_SESSION['user_id'])){
+        $user_id = $_SESSION['user_id'];
+     }else{
+        $user_id = '';
+     };
+
     if(isset($_POST['register'])){
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -120,8 +126,8 @@
                         <h2>Sign Up Now</h2>
                         <?php echo $message; ?>
                         <form action="" method="post">
-                            <input type="text" class="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['register'])) { echo $name; } ?>" required>
-                            <input type="email" class="email" name="email" placeholder="Enter Your Email" value="<?php if (isset($_POST['register'])) { echo $email; } ?>" required>
+                            <input type="text" class="name" id="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['register'])) { echo $name; } ?>" required>
+                            <input type="email" class="email" id="email"name="email" placeholder="Enter Your Email" value="<?php if (isset($_POST['register'])) { echo $email; } ?>" required>
                             <input type="number" class="number" name="number" placeholder="Enter Your Number" required>
                             <input type="password" class="password" name="password" placeholder="Enter Your Password" required>
                             <input type="password" class="confirm-password" name="confirm-password" placeholder="Enter Your Confirm Password" required>
@@ -145,6 +151,12 @@
             return false;
         }
     });
-</script>  
+</script>
+<?php if ($result) { ?>
+  <script>
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+  </script>
+<?php } ?>  
 </body>
 </html>

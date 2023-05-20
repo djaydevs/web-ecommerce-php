@@ -12,7 +12,7 @@ body,html {
     box-sizing: border-box;
 }
 
-/* Form style for Login, Sign up , forgot password and change password */
+/* Form style for Login, Sign up , Forgot and Change password */
 .form-section {
     position: relative;
     min-height: 100vh;
@@ -107,7 +107,7 @@ body,html {
     padding-bottom: 15px;
 }
 
-/* Aler style */
+/* Alert style */
 .alert {    
     padding: 1rem;
     border-radius: 5px;
