@@ -7,11 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../styles/admin_customaccount.css?v=<?php echo time(); ?>">
     <style>
-        .container,
-        .container h2 {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
         .container-body {
             padding: 10px;
         }
@@ -54,8 +49,6 @@
 
 <body>
     <div class="container">
-        <h2>Customer Accounts</h2>
-
         <div class="container-body">
             <div class="header">
                 <h4>Registered Customers</h4>
@@ -82,8 +75,8 @@
                         $conn =  mysqli_connect($serverName, $userName, $password, $dbName);
 
                         if (!$conn) {
-                            die('Connection Failed'. mysqli_connect_error());
-                        } 
+                            die('Connection Failed' . mysqli_connect_error());
+                        }
 
                         // query 
                         $query = "SELECT * FROM users";
@@ -91,7 +84,7 @@
 
                         if (mysqli_num_rows($query_run) > 0) {
                             foreach ($query_run as $row) {
-                                ?>
+                        ?>
                                 <tr>
                                     <td><?= $row['id']; ?></td>
                                     <td><?= $row['name']; ?></td>
