@@ -19,133 +19,127 @@ include 'components/add_to_cart.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./styles/styles.css ?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/8eb0534a39.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>BURPGER</title>
 </head>
 
 <body>
+    <?php include 'components/loading.php'; ?>
+    <div class="main-container">
+        <?php include 'components/main_header.php'; ?>
 
-    <div class="loading-page">
-        <svg id="loading-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path d="M61.1 224C45 224 32 211 32 194.9c0-1.9 .2-3.7 .6-5.6C37.9 168.3 78.8 32 256 32s218.1 136.3 223.4 157.3c.5 1.9 .6 3.7 .6 5.6c0 16.1-13 29.1-29.1 29.1H61.1zM144 128a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zm240 16a16 16 0 1 0 0-32 16 16 0 1 0 0 32zM272 96a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zM16 304c0-26.5 21.5-48 48-48H448c26.5 0 48 21.5 48 48s-21.5 48-48 48H64c-26.5 0-48-21.5-48-48zm16 96c0-8.8 7.2-16 16-16H464c8.8 0 16 7.2 16 16v16c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V400z" />
-        </svg>
-    </div>
-
-    <?php include 'components/main_header.php'; ?>
-
-    <main>
-        <section class="hero | padding-block-900">
-            <div class="container">
-                <div class="even-columns">
-                    <div class="flow">
-                        <h1 class="fs-primary-heading fw-bold">Your home of the best delicious patties!</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quos quas doloremque ipsum, aspernatur hic recusandae minima porro dolorem odio? Odio, animi! Excepturi incidunt deleniti culpa non et asperiores impedit.</p>
-                        <button class="button">Order Now</button>
-                    </div>
-                    <div>
-                        <img src="./assets/images/header1.svg" alt="">
+        <main>
+            <section class="hero | padding-block-900">
+                <div class="container">
+                    <div class="even-columns">
+                        <div class="flow">
+                            <h1 class="fs-primary-heading fw-bold">Your home of the best delicious patties!</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quos quas doloremque ipsum, aspernatur hic recusandae minima porro dolorem odio? Odio, animi! Excepturi incidunt deleniti culpa non et asperiores impedit.</p>
+                            <button class="button">Order Now</button>
+                        </div>
+                        <div>
+                            <img src="./assets/images/header1.svg" alt="">
+                        </div>
                     </div>
                 </div>
+            </section>
+        </main>
+        <!-- CATEGORY SECTION -->
+
+        <section class="home-category">
+
+            <h1 class="title">food category</h1>
+
+            <div class="box-container">
+
+                <a href="category.php?category=Burger" class="box">
+                    <img src="assets/images/burger.png" alt="">
+                    <h3>Burger Club</h3>
+                </a>
+
+                <a href="category.php?category=Fries" class="box">
+                    <img src="assets/images/french-fries.png" alt="">
+                    <h3>French Fries</h3>
+                </a>
+
+                <a href="category.php?category=Drinks" class="box">
+                    <img src="assets/images/drink.png" alt="">
+                    <h3>Drinks</h3>
+                </a>
+
             </div>
+
         </section>
-    </main>
+
+        <!-- SHOW PRODUCTS -->
+
+        <section class="products">
+
+            <h1 class="title">Fresh menus</h1>
+
+            <div class="box-container">
+
+                <?php
+                $select_products = "SELECT * FROM `products` LIMIT 6";
+                $res = mysqli_query($conn, $select_products);
+                if (mysqli_num_rows($res) > 0) {
+                    while ($row = $res->fetch_assoc()) {
+                ?>
+                        <form action="" method="post" class="box">
+                            <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
+                            <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
+                            <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
+                            <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
+                            <a href="quick_view.php?pid=<?php echo $row['product_ID']; ?>" class="fas fa-eye"></a>
+                            <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+                            <img src="./assets/images/<?php echo $row['image']; ?>" alt="">
+                            <a href="category.php?category=<?php echo $row['category']; ?>" class="cat"><?php echo $row['category']; ?></a>
+                            <div class="name"><?php echo $row['name']; ?></div>
+                            <div class="flex">
+                                <div class="price"><span>$</span><?php echo $row['price']; ?></div>
+                                <input type="number" name="qty" class="qty" min="1" max="99" value="0" maxlength="2">
+
+                                <script>
+                                    document.querySelectorAll('input[type="number"]').forEach(numberInput => {
+                                        numberInput.oninput = () => {
+                                            if (numberInput.value.length > numberInput.maxLength) numberInput.value = numberInput.value.slice(0, numberInput.maxLength);
+                                        };
+                                    });
+                                </script>
+                            </div>
+                        </form>
+                <?php
+                    }
+                } else {
+                    echo '<p class="empty">no products added yet!</p>';
+                }
+                ?>
+
+            </div>
+            <!-- <div class="more-btn">
+                <a href="menu.html" class="btn">veiw all</a>
+                </div> -->
+        </section>
+    </div>
     <script>
         gsap.fromTo(
-            ".loading-page", {
-                opacity: 1
-            }, {
+            ".main-container", {
                 opacity: 0,
-                display: "none",
-                duration: 1.5,
-                delay: 2,
+                display: "none"
+            }, {
+                opacity: 1,
+                duration: 1,
+                delay: 1.3,
+                display: "block"
             }
         );
     </script>
     <script src="./js/script.js"></script>
-
-    
-<!-- CATEGORY SECTION -->
-
-<section class="home-category">
-
-<h1 class="title">food category</h1>
-
-<div class="box-container">
-
-   <a href="category.php?category=Burger" class="box">
-      <img src="assets/images/burger.png" alt="">
-      <h3>Burger Club</h3>
-   </a>
-
-   <a href="category.php?category=Fries" class="box">
-      <img src="assets/images/french-fries.png" alt="">
-      <h3>French Fries</h3>
-   </a>
-
-   <a href="category.php?category=Drinks" class="box">
-      <img src="assets/images/drink.png" alt="">
-      <h3>Drinks</h3>
-   </a>
-
-</div>
-
-</section>
-
-<!-- SHOW PRODUCTS -->
-
-<section class="products">
-
-<h1 class="title">Fresh menus</h1>
-
-<div class="box-container">
-
-   <?php
-      $select_products = "SELECT * FROM `products` LIMIT 6";
-      $res=mysqli_query($conn, $select_products);
-      if(mysqli_num_rows($res) > 0){
-         while($row = $res->fetch_assoc()) {
-   ?>
-   <form action="" method="post" class="box">
-      <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
-      <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
-      <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
-      <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-      <a href="quick_view.php?pid=<?php echo $row['product_ID']; ?>" class="fas fa-eye"></a>
-      <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-      <img src = "./assets/images/<?php echo $row['image']; ?>" alt="">
-      <a href="category.php?category=<?php echo $row['category']; ?>" class="cat"><?php echo $row['category']; ?></a>
-      <div class="name"><?php echo $row['name']; ?></div>
-      <div class="flex">
-         <div class="price"><span>$</span><?php echo $row['price']; ?></div>
-         <input type="number" name="qty" class="qty" min="1" max="99" value="0" maxlength="2">
-
-         <script>
-             document.querySelectorAll('input[type="number"]').forEach(numberInput => {numberInput.oninput = () =>{
-                 if(numberInput.value.length > numberInput.maxLength) numberInput.value = numberInput.value.slice(0, numberInput.maxLength);
-                 };
-             }); 
-         </script>
-      </div>
-   </form>
-   <?php
-         }
-      }else{
-         echo '<p class="empty">no products added yet!</p>';
-      }
-   ?>
-
-</div>
-
-<!-- <div class="more-btn">
-   <a href="menu.html" class="btn">veiw all</a>
-</div> -->
-
-</section>
-
 </body>
 
 </html>

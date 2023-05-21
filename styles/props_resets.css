@@ -116,6 +116,16 @@ a {
     cursor: pointer;
 }
 
+.unscrollable {
+    overflow: hidden;
+}
+
+.material-icons-outlined.md-18 { font-size: 1.125rem; }
+.material-icons-outlined.md-24 { font-size: 1.5rem; }
+.material-icons-outlined.md-30 { font-size: 1.875rem; }
+.material-icons-outlined.md-35 { font-size: 2.1875rem; }
+.material-icons-outlined.md-48 { font-size: 3rem; }
+
 .material-icons-sharp.md-18 { font-size: 1.125rem; }
 .material-icons-sharp.md-24 { font-size: 1.5rem; }
 .material-icons-sharp.md-30 { font-size: 1.875rem; }

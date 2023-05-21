@@ -1,4 +1,5 @@
 @import url('props_resets.css');
+
 /* LOADING DIV */
 .loading-page {
     position: absolute;
@@ -7,7 +8,6 @@
     width: 100%;
     height: 100vh;
     align-items: center;
-    overflow: hidden;
 }
 
 #loading-svg {
@@ -45,6 +45,10 @@
     text-decoration: none;
 }
 
+.logo i {
+    margin-top: 0.85em;
+}
+
 .logo span {
     padding: 0.2em;
     color: var(--clr-primary-color);
@@ -52,33 +56,67 @@
     font-size: var(--fs-700);
 }
 
-#logo {
-    fill: var(--clr-primary-color);
-}
-
 .nav-list {
     font-size: var(--fs-500);
-    list-style: none;
 }
   
-.nav-list {
+.nav-list, .nav-list-icons {
     display: flex;
     gap: clamp(1rem, 5vw, 3rem);
     font-weight: var(--fw-semibold);
 }
+
+.nav-list-icons {
+    gap: clamp(1rem, 1vw, 1rem);
+}
   
 .nav-list a {
-    text-decoration: none;
     color: black;
 }
 
 .nav-list a:hover,
-.nav-list a:focus {
-  color: var(--clr-primary-color);
+.nav-list a:focus,
+.nav-list-icons a:hover,
+.nav-list-icons a:focus {
+    color: var(--clr-primary-color);
+}
+
+.icons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icons-container a {
+    color: black;
+    padding: 0 0.2em;
+}
+
+.icons:hover,
+.icons:focus-visible {
+    color: var(--clr-primary-color);
+    fill: var(--clr-primary-color);
+}
+
+#cart-counter {
+    font-size: var(--fs-100);
 }
 
 /* STYLE FOR PROFILE  */
-.btn,
+.profile {
+    position: absolute;
+    margin: 0 0.2em;
+    right: 0;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 0.5em 1.5em 0em var(--clr-neutral-200);
+    background-color: var(--white);
+    padding: 1rem;
+    text-align: center;
+    animation: showProfile .2s linear;
+    display: none;
+}
+
+.btn-profile,
 .delete-btn{
    margin-top: 1rem;
    display: inline-block;
@@ -89,36 +127,25 @@
    transition: .2s linear;
 }
 
-.btn{
+.btn-profile{
     background-color: var(--yellow);
     color:var(--black);
  }
 
- .btn:hover,
+.btn-profile:hover,
 .delete-btn:hover{
    letter-spacing: .2rem;
 }
 
- .delete-btn{
+.delete-btn{
     background-color: var(--red);
     color:var(--white);
- }
-
-.header .profile{
-    top: 120%; right: 2rem;
-    border: var(--border);
-    background-color: var(--white);
-    padding: 1.5rem;
-    text-align: center;
-    width: 30rem;
-    animation: fadeIn .2s linear;
-    display: none;
 }
 
-@keyframes fadeIn{
-    0%{
-      transform: translateY(1rem);
-   }
+@keyframes showProfile{
+    0% {
+      transform: translateY(-1rem);
+    }
 }
 
 .header .profile.active{
@@ -153,21 +180,6 @@ header .profile .name{
 .button:hover,
 .button:focus-visible {
     box-shadow: 0 1.125em 1em -1em black;
-}
-
-.icons-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.icons-container a {
-    padding: 0 0.5em;
-}
-
-.icons:hover,
-.icons:focus-visible {
-    fill: var(--clr-primary-color);
 }
 
 /* UTILITIES */
