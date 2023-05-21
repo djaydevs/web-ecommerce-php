@@ -133,7 +133,7 @@ if (isset($_GET['delete'])) {
                     while ($row = $rslt->fetch_assoc()) {
             ?>
                         <div class="box">
-                            <div class="price">$<?php echo $row['price']; ?>/-</div>
+                            <div class="price">&#8369;<?php echo $row['price']; ?>/-</div>
                             <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
                             <div class="name"><?php echo $row['name']; ?></div>
                             <div class="category"><?php echo $row['category']; ?></div>

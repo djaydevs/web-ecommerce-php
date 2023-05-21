@@ -29,7 +29,8 @@
             <span class="material-icons-sharp">people</span>
             <h3>Customer Account</h3>
         </a>
-        <a href="#">
+        <!-- Logout from admin panel -->
+        <a href="admin_logout.php">
             <span class="material-icons-sharp">logout</span>
             <h3>Logout</h3>
         </a>

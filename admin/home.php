@@ -1,3 +1,18 @@
+<?php
+  session_start(); 
+
+  if (!isset($_SESSION['cafe_db'])) {
+      //If user is not logged in, redirect to login page
+      header("Location: admin_login.php");
+      exit; // Terminate the current script
+  }
+
+  $admin_id = $_SESSION['admin_id'];
+  if(!isset($admin_id)){
+    header('location:admin_login.php');
+  };
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

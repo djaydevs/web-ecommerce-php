@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id'])) {
    $user_id = $_SESSION['user_id'];
 } else {
    $user_id = '';
-   header('location:home.php');
+   header('location: index.php');
 };
 
 
@@ -90,7 +90,7 @@ if (isset($message)) {
                         <img src="./assets/images/<?php echo $row['image']; ?>" alt="">
                         <div class="name"><?php echo $row['name']; ?></div>
                         <div class="flex">
-                           <div class="price"><span>$</span><?php echo $row['price']; ?></div>
+                           <div class="price"><span>&#8369;</span><?php echo $row['price']; ?></div>
                            <input type="number" name="qty" class="qty" value="<?php echo $row['quantity']; ?>" min="1" max="99" maxlength="2">
                            <button type="submit" class="fas fa-edit" name="update_qty"></button>
                         </div>
@@ -107,7 +107,7 @@ if (isset($message)) {
             </div>
 
             <div class="cart-total">
-               <p>cart total : <span>$<?= $grand_total; ?></span></p>
+               <p>cart total : <span>&#8369;<?= $grand_total; ?></span></p>
                <a href="checkout.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">proceed to checkout</a>
             </div>
 

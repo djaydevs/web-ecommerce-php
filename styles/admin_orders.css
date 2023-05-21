@@ -1,11 +1,132 @@
 @import url("props_resets.css");
 
+:root{
+    --main-color:#4834d4;
+    --red:#e74c3c;
+    --orange:#f39c12;
+    --black:#34495e;
+    --white:#fff;
+    --green: #11b80b;
+    --light-bg:#f5f5f5;
+    --light-color:#999;
+    --border:.2rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --clr-primary-color:hsl(40, 93%, 49%);
+}
+
 body {
     position: relative;
 }
 
 p {
-    font-size: var(--fs-900);
+    font-size: var(--fs-700);
     color: black;
     line-height: 1.5;
 }
+
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none; border:none;
+}
+ 
+ *::selection{
+    color:var(--white);
+    background-color: var(--main-color);
+}
+ 
+::-webkit-scrollbar{
+    width: 1rem;
+    height: .3rem;
+}
+ 
+::-webkit-scrollbar-track{
+   background-color: none;
+}
+ 
+::-webkit-scrollbar-thumb{
+    background-color: var(--clr-primary-color);
+}
+
+.placed-orders .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 23rem);
+    gap:1rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+ 
+.placed-orders .box-container .box{
+    background-color: var(--white);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    padding: 1.5rem;
+    padding-top: 1rem;
+}
+ 
+.placed-orders .box-container .box p{
+    padding: .5rem 0;
+    line-height: 1.5;
+    font-size: .85rem;
+    color:var(--black);
+}
+ 
+.placed-orders .box-container .box p span{
+    color:var(--main-color);
+}
+ 
+.placed-orders .box-container .box .drop-down{
+    width: 100%;
+    margin:1rem 0;
+    background-color: var(--light-bg);
+    padding: .7rem 1.4rem;
+    font-size: .85rem;
+    color:var(--black);
+    border:var(--border);
+    border-radius: .5rem;
+}
+
+.flex-btn{
+    display: flex;
+    gap:1rem;
+}
+
+ .btnn,
+.delete-btn,
+.option-btn{
+   display: block;
+   margin-top: .9rem;
+   border-radius: .3rem;
+   cursor: pointer;
+   width: 100%;
+   font-size: 1rem;
+   color:var(--white);
+   padding:.7rem 1rem;
+   text-transform: capitalize;
+   text-align: center;
+}
+
+.btnn{
+   background-color: var(--main-color);
+}
+
+.delete-btn{
+   background-color: var(--orange);
+}
+
+.option-btn{
+    background-color: var(--orange);
+}
+ 
+ .btnn:hover:hover{
+    background-color: var(--green);
+}
+
+.delete-btn:hover{
+    background-color: var(--red);
+}
+
+
+
