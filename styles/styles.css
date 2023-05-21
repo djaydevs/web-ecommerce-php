@@ -581,6 +581,78 @@ header .profile .name{
    margin-top: 0;
 }
 
+/* user profile layout */
+
+.user-profile{
+    border: var(--border);
+    padding: 2rem;
+    border: var(--border);
+    text-align: center;
+    max-width: 30rem;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.user-profile img{
+    height: 25 rem;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* profile update */
+
+.form-container form{
+    border:var(--border);
+    margin:0 auto;
+    max-width: 30rem;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 20px;
+ }
+ 
+ .form-container form h3{
+    font-size: 2rem;
+    color:var(--black);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+ }
+ 
+ .form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    border:var(--border);
+    padding: .8rem;
+    font-size: 1rem;
+    color:var(--black);
+ }
+ 
+ .form-container form p{
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    color:var(--light-color);
+ }
+ 
+ .form-container form p a{
+    color:var(--black);
+ }
+ 
+ .form-container form p a:hover{
+    text-decoration: underline;
+ }
+
+ .message{
+    position: sticky;
+    top:0;
+    max-width: 1200px;
+    margin:0 auto;
+    padding:2rem;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    justify-content: space-between;
+    background-color: var(--yellow);
+ }
+
 /************* MEDIA QUERIES *************/
 
 @media screen and (max-width: 75rem) {

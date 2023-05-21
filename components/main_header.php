@@ -53,7 +53,7 @@
     ?>
         <p class="name"><?= $fetch_profile['name']; ?></p>
         <div class="flex">
-            <a href="user_profile" class="btn-profile">Profile</a>
+            <a href="user_profile.php" class="btn-profile">Profile</a>
             <a href="user_logout.php" onclick="return confirm('Are you sure you want to logout ?');" class="delete-btn">Logout</a>
         </div>
     <?php
