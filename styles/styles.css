@@ -1,5 +1,18 @@
 @import url('props_resets.css');
 
+.container {
+    --max-width: 1110px;
+    --container-padding: 1rem;
+  
+    width: min(var(--max-width), 100% - (var(--container-padding) * 2));
+    margin-inline: auto;
+}
+  
+.even-columns {
+    display: grid;
+    gap: 1rem;
+}
+
 /* LOADING DIV */
 .loading-page {
     position: absolute;
@@ -32,11 +45,18 @@
 }
 
 /* HEADER */
+header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1.125em 1em -1em var(--clr-neutral-200);
+    border-bottom: 1px solid var(--clr-neutral-200);
 }
 
 .logo {
@@ -102,9 +122,18 @@
     font-size: var(--fs-100);
 }
 
+#menu-btn {
+    margin: 0 0.5em;
+    display: none;
+}
+
+#close-btn {
+    display: none;
+}
+
 /* STYLE FOR PROFILE  */
 .profile {
-    position: absolute;
+    position: fixed;
     margin: 0 0.2em;
     right: 0;
     border-radius: 0 0 1rem 1rem;
@@ -182,54 +211,9 @@ header .profile .name{
     box-shadow: 0 1.125em 1em -1em black;
 }
 
-/* UTILITIES */
-.container {
-    --max-width: 1110px;
-    --container-padding: 1rem;
-  
-    width: min(var(--max-width), 100% - (var(--container-padding) * 2));
-    margin-inline: auto;
-}
-  
-.even-columns {
-    display: grid;
-    gap: 1rem;
-}
-  
-@media (min-width: 50em) {
-    .even-columns {
-      grid-auto-flow: column;
-      grid-auto-columns: 1fr;
-    }
-}
-
 :where(.flow :not(:first-child)) {
     margin-top: var(--flow-spacer, 4em);
 }
-
-.fw-bold { 
-    font-weight: var(--fw-bold); 
-}
-.fw-semi-bold { 
-    font-weight: var(--fw-semibold); 
-}
-.fw-regular { 
-    font-weight: var(--fw-regular); 
-}
-  
-.fs-primary-heading {
-    font-size: var(--fs-900);
-    line-height: 1.1;
-}
-.fs-secondary-heading {
-    font-size: var(--fs-800);
-    line-height: 1.1;
-}
-
-.padding-block-900 {
-    padding-block: 5rem;
-}
-
 
 /* CATEGORY UI */
 
@@ -470,21 +454,30 @@ header .profile .name{
 
 /* CART LAYOUT */
 
-.heading{
+.top-header{
     display: flex;
     align-items: center;
     justify-content: center;
     gap:1rem;
     flex-flow: column;
-    background-color: orange;
-    min-height: 15rem;
+    background-color: var(--clr-primary-color);
+    min-height: 15em;
  }
 
-.heading h3 {
-    font-size: 2rem;
+.top-header h2 {
     color:white;
     text-transform: capitalize;
- }
+}
+
+.title {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    color:black;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+}
 
 .heading p{
    font-size: 1rem;
@@ -500,16 +493,7 @@ header .profile .name{
    color:white;
 }
 
-.title{
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 2.5rem;
-    font-size: 2rem;
-    color:black;
-    text-transform: uppercase;
-    text-decoration: underline;
-    text-underline-offset: 1rem;
- }
+
 
 .disabled {
     user-select: none;
@@ -595,4 +579,64 @@ header .profile .name{
  
 .products .cart-total .btn{
    margin-top: 0;
+}
+
+/************* MEDIA QUERIES *************/
+
+@media screen and (max-width: 75rem) {
+    .nav-list {
+        font-size: var(--fs-300);
+        gap: clamp(1rem, 3vw, 2rem);
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    #menu-btn, #close-btn {
+        display: block;
+    }
+
+    .primary-navigation {
+        display: none;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        padding: 2em 2em;
+        box-shadow: 0 1em 5em 0.5em black;
+        animation: showNav 400ms ease forwards;
+    }
+
+    @keyframes showNav {
+        to {
+          right: 0;
+        }
+    }
+
+    .nav-list {
+        display: grid;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .nav-list li a {
+        padding: 0.4em 1.5em;
+        text-align: right;
+        font-size: var(--fs-600);
+    }
+
+    #close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0.1em;
+    }
+}
+
+@media (min-width: 48rem) {
+    .even-columns {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
 }

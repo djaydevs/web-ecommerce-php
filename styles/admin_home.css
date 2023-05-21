@@ -27,10 +27,8 @@ aside .logo {
   display: flex;
 }
 
-aside .logo img {
-  width: 32px;
-  height: 32px;
-  display: block;
+aside .logo i {
+  margin-top: 0.5em;
 }
 
 .logo-text {
@@ -113,11 +111,11 @@ aside .sidebar a.active {
   }
 
   .container {
-    grid-template-columns: 75.2px auto;
+    grid-template-columns: 4.7rem auto;
   }
 
   aside {
-    padding: 0 8px;
+    padding: 0 .5rem;
   }
 
   .logo-text {
@@ -144,6 +142,10 @@ aside .sidebar a.active {
     width: 100%;
   }
 
+  .logo {
+    height: 20%;
+  }
+
   aside {
     box-shadow: 0 1em 5em 0.5em var(--clr-neutral-200);
     position: fixed;
@@ -166,13 +168,17 @@ aside .sidebar a.active {
     display: inline;
   }
 
+  aside .sidebar {
+    margin-top: 2em;
+  }
+
   aside .sidebar h3 {
     display: inline;
   }
 
   aside .sidebar a {
     width: 100%;
-    height: 54.4px;
+    height: 3.4rem;
   }
 
   aside .sidebar a:last-child {
@@ -186,7 +192,7 @@ aside .sidebar a.active {
   }
 
   #btn-close {
-    padding: 0 0 2rem 3.7rem;
+    padding: 0 0 2rem 2rem;
     cursor: pointer;
     display: inline-block;
   }

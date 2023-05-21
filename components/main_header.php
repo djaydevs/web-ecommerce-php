@@ -1,15 +1,15 @@
 <header class="header">
     <div class="nav-wrapper">
-        <a href="" class="logo">
+        <a href="index.php" class="logo">
             <i class="fa-solid fa-burger fa-2xl" style="color: #f1a409;"></i>
-            <!-- <img src="../assets/icons/burger-solid.png" alt=""> -->
             <span>BURPGER</span>
         </a>
         <nav class="primary-navigation">
             <ul class="nav-list">
+                <li><span class="btn icons | material-icons-outlined md-40" id="close-btn">highlight_off</span></li>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="">About</a></li>
-                <li><a href="">Menu</a></li>
+                <li><a href="index.php#menu">Menu</a></li>
                 <li><a href="cart.php">Orders</a></li>
                 <li><a href="">Contacts</a></li>
             </ul>
@@ -34,11 +34,8 @@
                         <span id="cart-counter">(<?= $total_cart_items; ?>)</span>
                     </a>
                 </li>
-                <li>
-                    <button class="btn" id="btn-account">
-                        <span class="icons | material-icons-outlined md-30">account_circle</span>
-                    </button>
-                </li>
+                <li><span class="btn icons | material-icons-outlined md-30" id="btn-account">account_circle</span></li>
+                <li><span class="btn icons | material-icons-outlined md-30" id="menu-btn">menu</span></li>
             </ul>
         </div>
         <!-- <button class="button">Log In</button> -->

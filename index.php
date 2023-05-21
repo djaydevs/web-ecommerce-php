@@ -34,6 +34,7 @@ include 'components/add_to_cart.php';
         <?php include 'components/main_header.php'; ?>
 
         <main>
+            <!-- HERO SECTION -->
             <section class="hero | padding-block-900">
                 <div class="container">
                     <div class="even-columns">
@@ -48,97 +49,73 @@ include 'components/add_to_cart.php';
                     </div>
                 </div>
             </section>
-        </main>
-        <!-- CATEGORY SECTION -->
+            <!-- CATEGORY SECTION -->
+            <section class="home-category" id="menu">
 
-        <section class="home-category">
+                <h1 class="title">food category</h1>
 
-            <h1 class="title">food category</h1>
+                <div class="box-container">
+                    <a href="category.php?category=Burger" class="box">
+                        <img src="assets/images/burger.png" alt="">
+                        <h3>Burger Club</h3>
+                    </a>
+                    <a href="category.php?category=Fries" class="box">
+                        <img src="assets/images/french-fries.png" alt="">
+                        <h3>French Fries</h3>
+                    </a>
+                    <a href="category.php?category=Drinks" class="box">
+                        <img src="assets/images/drink.png" alt="">
+                        <h3>Drinks</h3>
+                    </a>
+                </div>
+            </section>
+            <!-- SHOW PRODUCTS -->
+            <section class="products">
+                <h1 class="title">Fresh menus</h1>
+                <div class="box-container">
+                    <?php
+                    $select_products = "SELECT * FROM `products` LIMIT 6";
+                    $res = mysqli_query($conn, $select_products);
+                    if (mysqli_num_rows($res) > 0) {
+                        while ($row = $res->fetch_assoc()) {
+                    ?>
+                            <form action="" method="post" class="box">
+                                <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
+                                <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
+                                <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
+                                <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
+                                <a href="quick_view.php?pid=<?php echo $row['product_ID']; ?>" class="fas fa-eye"></a>
+                                <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
+                                <img src="./assets/images/<?php echo $row['image']; ?>" alt="">
+                                <a href="category.php?category=<?php echo $row['category']; ?>" class="cat"><?php echo $row['category']; ?></a>
+                                <div class="name"><?php echo $row['name']; ?></div>
+                                <div class="flex">
+                                    <div class="price"><span>$</span><?php echo $row['price']; ?></div>
+                                    <input type="number" name="qty" class="qty" min="1" max="99" value="0" maxlength="2">
 
-            <div class="box-container">
-
-                <a href="category.php?category=Burger" class="box">
-                    <img src="assets/images/burger.png" alt="">
-                    <h3>Burger Club</h3>
-                </a>
-
-                <a href="category.php?category=Fries" class="box">
-                    <img src="assets/images/french-fries.png" alt="">
-                    <h3>French Fries</h3>
-                </a>
-
-                <a href="category.php?category=Drinks" class="box">
-                    <img src="assets/images/drink.png" alt="">
-                    <h3>Drinks</h3>
-                </a>
-
-            </div>
-
-        </section>
-
-        <!-- SHOW PRODUCTS -->
-
-        <section class="products">
-
-            <h1 class="title">Fresh menus</h1>
-
-            <div class="box-container">
-
-                <?php
-                $select_products = "SELECT * FROM `products` LIMIT 6";
-                $res = mysqli_query($conn, $select_products);
-                if (mysqli_num_rows($res) > 0) {
-                    while ($row = $res->fetch_assoc()) {
-                ?>
-                        <form action="" method="post" class="box">
-                            <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
-                            <input type="hidden" name="name" value="<?php echo $row['name']; ?>">
-                            <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
-                            <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
-                            <a href="quick_view.php?pid=<?php echo $row['product_ID']; ?>" class="fas fa-eye"></a>
-                            <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
-                            <img src="./assets/images/<?php echo $row['image']; ?>" alt="">
-                            <a href="category.php?category=<?php echo $row['category']; ?>" class="cat"><?php echo $row['category']; ?></a>
-                            <div class="name"><?php echo $row['name']; ?></div>
-                            <div class="flex">
-                                <div class="price"><span>$</span><?php echo $row['price']; ?></div>
-                                <input type="number" name="qty" class="qty" min="1" max="99" value="0" maxlength="2">
-
-                                <script>
-                                    document.querySelectorAll('input[type="number"]').forEach(numberInput => {
-                                        numberInput.oninput = () => {
-                                            if (numberInput.value.length > numberInput.maxLength) numberInput.value = numberInput.value.slice(0, numberInput.maxLength);
-                                        };
-                                    });
-                                </script>
-                            </div>
-                        </form>
-                <?php
+                                    <script>
+                                        document.querySelectorAll('input[type="number"]').forEach(numberInput => {
+                                            numberInput.oninput = () => {
+                                                if (numberInput.value.length > numberInput.maxLength) numberInput.value = numberInput.value.slice(0, numberInput.maxLength);
+                                            };
+                                        });
+                                    </script>
+                                </div>
+                            </form>
+                    <?php
+                        }
+                    } else {
+                        echo '<p class="empty">no products added yet!</p>';
                     }
-                } else {
-                    echo '<p class="empty">no products added yet!</p>';
-                }
-                ?>
-
-            </div>
-            <!-- <div class="more-btn">
+                    ?>
+                </div>
+                <!-- <div class="more-btn">
                 <a href="menu.html" class="btn">veiw all</a>
                 </div> -->
-        </section>
+            </section>
+        </main>
     </div>
-    <script>
-        gsap.fromTo(
-            ".main-container", {
-                opacity: 0,
-                display: "none"
-            }, {
-                opacity: 1,
-                duration: 1,
-                delay: 1.3,
-                display: "block"
-            }
-        );
-    </script>
+    <script src="./js/main-container.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

@@ -3,6 +3,18 @@ const divProfile = document.querySelector('#profile');
 const btnLogin = document.querySelector('#login');
 const btnSignup = document.querySelector('#signup');
 
+const showNav = document.querySelector('.primary-navigation');
+const btnMenu = document.querySelector('#menu-btn');
+const btnClose = document.querySelector('#close-btn');
+
+btnMenu.addEventListener('click', () => {
+  showNav.style.display = 'block';
+});
+
+btnClose.addEventListener('click', () => {
+  showNav.style.display = 'none';
+});
+
 // Add a click event listener to the button
 toggleBtnProfile.addEventListener('click', () => {
   // Toggle the visibility of the div

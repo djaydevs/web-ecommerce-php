@@ -1,7 +1,7 @@
 <aside id="sidebar">
     <div class="top">
         <div class="logo">
-            <img src="../assets/icons/burger-solid.svg" alt="logo">
+            <i class="fa-solid fa-burger fa-2xl" style="color: #f1a409;"></i>
             <h2 class="logo-text">BURPGER<span>Admin</span></h2>
         </div>
         <button class="btn">

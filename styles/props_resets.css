@@ -6,7 +6,7 @@
     --clr-primary-color:hsl(40, 93%, 49%);
     --clr-accent-color: hsl(6, 78%, 57%);
 
-    --clr-neutral-100: hsl(0, 0%, 95%);
+    --clr-neutral-100: hsl(0, 0%, 97%);
     --clr-neutral-200: hsl(0, 0%, 80%);
     --clr-neutral-300: hsl(0, 0%, 65%);
     --clr-neutral-400: hsl(0, 0%, 50%);
@@ -73,6 +73,7 @@ html:focus-within {
 
 html,
 body {
+    scroll-behavior: smooth;
     height: 100%;
 }
 
@@ -109,6 +110,9 @@ a {
 }
 
 /************* UTILITIES *************/
+main {
+    background-color: var(--clr-neutral-100);
+}
 
 .btn {
     border: none;
@@ -120,10 +124,47 @@ a {
     overflow: hidden;
 }
 
+.padding-block-900 {
+    padding-block: 5rem;
+}
+
+.fw-regular { 
+    font-weight: var(--fw-regular); 
+}
+.fw-medium { 
+    font-weight: var(--fw-medium); 
+}
+.fw-semi-bold { 
+    font-weight: var(--fw-semibold); 
+}
+.fw-bold { 
+    font-weight: var(--fw-bold); 
+}
+.fw-extra-bold { 
+    font-weight: var(--fw-extrabold); 
+}
+.fw-black { 
+    font-weight: var(--fw-black); 
+}
+  
+.fs-primary-heading {
+    font-size: var(--fs-900);
+    line-height: 1.1;
+}
+.fs-secondary-heading {
+    font-size: var(--fs-800);
+    line-height: 1.1;
+}
+.fs-third-heading {
+    font-size: var(--fs-700);
+    line-height: 1.1;
+}
+
 .material-icons-outlined.md-18 { font-size: 1.125rem; }
 .material-icons-outlined.md-24 { font-size: 1.5rem; }
 .material-icons-outlined.md-30 { font-size: 1.875rem; }
 .material-icons-outlined.md-35 { font-size: 2.1875rem; }
+.material-icons-outlined.md-40 { font-size: 2.5rem; }
 .material-icons-outlined.md-48 { font-size: 3rem; }
 
 .material-icons-sharp.md-18 { font-size: 1.125rem; }
