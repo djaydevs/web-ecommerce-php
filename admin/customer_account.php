@@ -37,12 +37,19 @@
         }
 
         .delete-btn {
+            color: white;
             width: 70px;
             height: 35px;
             border: none;
             border-radius: 3px;
-            background-color: black;
-            color: white;
+            background-color: orange;  
+        }
+        .delete-btn a {
+        color: white;
+        text-decoration: none;
+        }
+        .delete-btn:hover{
+            background-color: red;  
         }
     </style>
 </head>

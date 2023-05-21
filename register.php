@@ -114,12 +114,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles/forms.css" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css ?v=<?php echo time(); ?>">
     <link href="//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
-<body>  
+<body> 
+    <?php include 'components/loading.php'; ?>
+    <?php include 'components/main_header.php'; ?>
     <section class="form-section">
         <div class ="container">
             <!-- Sign up form-->
@@ -156,5 +160,7 @@
         }
     });
 </script>
+<script src="./js/main-container.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>

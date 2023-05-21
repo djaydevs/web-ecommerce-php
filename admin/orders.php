@@ -34,8 +34,15 @@
         echo '
         <div class="message">
             <span>'.$message.'</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
         </div>
+        <script>
+        setTimeout(function() {
+            var messages = document.getElementsByClassName("message");
+            while (messages[0]) {
+                messages[0].remove();
+            }
+        }, 5000); // 5 seconds
+        </script>
         ';
         }
     }
@@ -51,7 +58,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
-      <p>Orders</p>
+      <p id="p-order">Orders</p>
       <section class="placed-orders">
         <div class="box-container">
         <!-- Get data to database orders to display in admin -->

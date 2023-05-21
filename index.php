@@ -32,7 +32,6 @@ include 'components/add_to_cart.php';
     <?php include 'components/loading.php'; ?>
     <div class="main-container">
         <?php include 'components/main_header.php'; ?>
-
         <main>
             <!-- HERO SECTION -->
             <section class="hero | padding-block-900">

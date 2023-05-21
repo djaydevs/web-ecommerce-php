@@ -49,6 +49,12 @@ p {
     background-color: var(--clr-primary-color);
 }
 
+#p-order{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
 .placed-orders .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, 23rem);
@@ -128,5 +134,14 @@ p {
     background-color: var(--red);
 }
 
+.message{
+    font-size: 1.7rem;
+    background-color: var(--yellow);
+}
 
+@media (max-width:450px){
+    .placed-orders .box-container{
+        grid-template-columns: 1fr;
+     }
+}
 

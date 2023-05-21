@@ -1,5 +1,4 @@
 @import url('props_resets.css');
-
 .container {
     --max-width: 1110px;
     --container-padding: 1rem;
@@ -727,6 +726,8 @@ header .profile .name{
     text-transform: capitalize;
     padding: 0.5rem 0;
     color:var(--black);
+    margin-top: 7px;
+    
  }
  
  .checkout form .cart-items{
@@ -769,7 +770,7 @@ header .profile .name{
  .checkout form .user-info p{ 
     font-size: 1rem;
     line-height: 1.5;
-    padding:1rem 0;
+    padding: 0.5rem 0;
  }
  
  .checkout form .user-info p i{
@@ -785,9 +786,28 @@ header .profile .name{
     width: 100%;
     border:var(--border);
     padding:1rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-bottom: 0.5rem;
     font-size: 1rem;
+ }
+
+ .check-btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: .2s linear;
+    padding:0.5rem 0.5rem;
+ }
+
+ .check-btn{
+    background-color: var(--yellow);
+    color:var(--black);
+ }
+
+ .check-btn:hover{
+    letter-spacing: .2rem;
  }
 
 /* End for checkout */

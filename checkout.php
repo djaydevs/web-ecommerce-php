@@ -55,6 +55,13 @@
          <span>'.$message.'</span>
          <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
       </div>
+      setTimeout(function() {
+         var messages = document.getElementsByClassName("message");
+         while (messages[0]) {
+             messages[0].remove();
+         }
+      }, 5000); // 5 seconds
+      </script>
       ';
       }
    }
@@ -107,7 +114,7 @@
                   }
                ?>
                <p class="grand-total"><span class="name">grand total :</span><span class="price">$<?= $grand_total; ?></span></p>
-               <a href="cart.php" class="btn">view cart</a>
+               <a href="cart.php" class="check-btn">view cart</a>
          </div>
 
          <input type="hidden" name="total_products" value="<?= $total_products; ?>">
@@ -122,10 +129,10 @@
          <p><i class="fas fa-user"></i><span><?= $fetch_profile['name'] ?></span></p>
          <p><i class="fas fa-phone"></i><span><?= $fetch_profile['number'] ?></span></p>
          <p><i class="fas fa-envelope"></i><span><?= $fetch_profile['email'] ?></span></p>
-         <a href="user_profile_update_profile.php" class="btn">update info</a>
+         <a href="user_profile_update_profile.php" class="check-btn">update info</a>
          <h3>delivery address</h3>
          <p><i class="fas fa-map-marker-alt"></i><span><?php if($fetch_profile['address'] == ''){echo 'please enter your address..';}else{echo $fetch_profile['address'];}?></span></p>
-         <a href="user_profile_update_address.php" class="btn">update address</a>
+         <a href="user_profile_update_address.php" class="check-btn">update address</a>
          <select name="method" class="box" required>
             <option value="" disabled selected>select payment method --</option>
             <option value="cash on delivery">cash on delivery</option>
@@ -133,7 +140,7 @@
             <option value="paytm">paytm</option>
             <option value="paypal">paypal</option>
          </select>   
-         <input type="submit" value="place order" class="btn <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
+         <input type="submit" value="place order" class="check-btn" <?php if($fetch_profile['address'] == ''){echo 'disabled';} ?>" style="width:100%; background:var(--red); color:var(--white);" name="submit">
       </div>
    </form>
    </section> 

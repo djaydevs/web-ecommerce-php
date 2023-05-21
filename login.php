@@ -71,9 +71,7 @@
                     }
                 }, 10000);
               </script>";
-
         }
-
     }
 ?>
 <!DOCTYPE html>
@@ -84,12 +82,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles/forms.css" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css ?v=<?php echo time(); ?>">
     <link href="//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 <body>
+    <?php include 'components/loading.php'; ?>
+    <?php include 'components/main_header.php'; ?>
     <section class="form-section">
         <div class ="container">
             <!-- Login form -->
@@ -101,7 +104,7 @@
                         <form action="" method="post">
                         <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
                         <input type="password" class="password" name="password" placeholder="Enter Your Password" style="margin-bottom: 2px;" required>
-                        <p><a href="forgot-password.php" style="margin-bottom: 15px; display: block;">Forgot Password?</a></p>
+                        <p><a href="forgot-password.php" style="margin-top: 15px; margin-bottom: 15px; display: block;" style="margin-top: 15px;">Forgot Password?</a></p>
                         <button name="login" class="btn" type="submit">Login</button>
                         </form>
                         <div class="intent">
@@ -113,5 +116,7 @@
             <!-- End of form -->
         </div>
     </section> 
+<script src="./js/main-container.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>

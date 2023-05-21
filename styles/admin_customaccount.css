@@ -9,3 +9,11 @@ p {
   color: black;
   line-height: 1.5;
 }
+
+@media (max-width:450px){
+
+  .accounts .box-container{
+     grid-template-columns: 1fr;
+  }
+
+}
