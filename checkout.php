@@ -27,9 +27,9 @@
   
       $check_cart = $conn->prepare("SELECT COUNT(*) FROM `cart` WHERE user_id = ?");
       $check_cart->execute([$user_id]);
-      $cart_items_count = $check_cart->fetchColumn();
+      $cart_items_count = $check_cart->get_result();
   
-      if ($cart_items_count > 0) {
+      if ($cart_items_count->num_rows > 0) {
           if ($address == '') {
               $message[] = 'please add your address!';
           } else {
@@ -39,12 +39,26 @@
               $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
               $delete_cart->execute([$user_id]);
   
-              $message[] = 'order placed successfully!';
+              $message[] = 'Order placed successfully!';
           }
       } else {
           $message[] = 'your cart is empty';
       }
   }
+
+   # ALERT MESSAGE ON THE HEADER
+
+   if(isset($message)){
+      foreach($message as $message){
+      echo '
+      <div class="message">
+         <span>'.$message.'</span>
+         <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+      </div>
+      ';
+      }
+   }
+
 ?>
 
 <!DOCTYPE html>
