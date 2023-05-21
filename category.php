@@ -59,7 +59,7 @@ include 'components/add_to_cart.php';
                         <img src="./assets/images/<?php echo $row['image']; ?>" alt="">
                         <div class="name"><?php echo $row['name']; ?></div>
                         <div class="flex">
-                            <div class="price"><span>$</span><?php echo $row['price']; ?></div>
+                            <div class="price"><span>&#8369;</span><?php echo $row['price']; ?></div>
                             <input type="number" name="qty" class="qty" min="1" max="99" value="0" maxlength="2">
 
                             <script>

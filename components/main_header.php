@@ -15,6 +15,7 @@
             </ul>
         </nav>
         <div class="icons-container">
+            <!-- Get the number of products added in cart -->
             <?php
             $count_cart_items = mysqli_prepare($conn, "SELECT * FROM `cart` WHERE user_id = ?");
             mysqli_stmt_bind_param($count_cart_items, "s", $user_id);
@@ -41,7 +42,7 @@
         <!-- <button class="button">Log In</button> -->
     </div>
 </header>
-
+<!-- Condition for profile -->
 <div class="profile" id="profile">
     <?php
     $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");

@@ -22,6 +22,8 @@
         //Check if the inputed username and password exist
         if(mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
+                $_SESSION['admin_id'] = $row['id'];
+                $_SESSION['cafe_db'] = 'true';
                 header("Location: home.php");
                 exit();
             } else{

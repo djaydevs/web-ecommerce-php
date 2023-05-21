@@ -146,6 +146,7 @@
             <!-- End of form -->
         </div>
     </section>
+<!-- Script for captcha -->
 <script> 
     $(document).on('click','#save',function(){
         var response = grecaptcha.getResponse();
