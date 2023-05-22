@@ -6,14 +6,12 @@
   display: grid;
   margin: 0 auto;
   grid-template-columns: 256px auto;
-  /* outline: .125rem solid red; */
 }
 
 /************* SIDEBAR *************/
 aside {
   background-color: white;
   height: 100vh;
-  /* outline: .125rem solid blue; */
 }
 
 aside .top {
@@ -48,7 +46,6 @@ aside .sidebar {
   flex-direction: column;
   height: 86vh;
   position: relative;
-  /* outline: .125rem solid green; */
 }
 
 aside .sidebar a {

@@ -1,16 +1,16 @@
 <?php
-  session_start(); 
+session_start();
 
-  if (!isset($_SESSION['cafe_db'])) {
-      //If user is not logged in, redirect to login page
-      header("Location: admin_login.php");
-      exit; // Terminate the current script
-  }
+if (!isset($_SESSION['cafe_db'])) {
+  //If user is not logged in, redirect to login page
+  header("Location: admin_login.php");
+  exit; // Terminate the current script
+}
 
-  $admin_id = $_SESSION['admin_id'];
-  if(!isset($admin_id)){
-    header('location:admin_login.php');
-  };
+$admin_id = $_SESSION['admin_id'];
+if (!isset($admin_id)) {
+  header('location:admin_login.php');
+};
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../styles/admin_home.css ?v=<?php echo time(); ?>">
+  <link rel="stylesheet" type="text/css" href="../styles/admin_styles.css ?v=<?php echo time(); ?>">
   <script src="https://kit.fontawesome.com/8eb0534a39.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Admin - Dashboard</title>

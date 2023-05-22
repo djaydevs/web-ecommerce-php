@@ -32,26 +32,26 @@ include 'components/add_to_cart.php';
     <?php include 'components/loading.php'; ?>
     <div class="main-container">
         <?php include 'components/main_header.php'; ?>
-        <main>
+        <main class="main-bg">
             <!-- HERO SECTION -->
-            <section class="hero | padding-block-900">
+            <section class="hero | padding-block">
                 <div class="container">
                     <div class="even-columns">
                         <div class="flow">
-                            <h1 class="fs-primary-heading fw-bold">Your home of the best delicious patties!</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quos quas doloremque ipsum, aspernatur hic recusandae minima porro dolorem odio? Odio, animi! Excepturi incidunt deleniti culpa non et asperiores impedit.</p>
-                            <button class="button">Order Now</button>
+                            <h1 class="fs-primary-heading fw-extrabold">Your home of the best delicious patties!<span><img src="./public/hero2.svg" alt=""></span></h1>
+                            <p>Burpger is now online! Order your favorite burgers and combos with just few clicks at the comfort of your home.</p>
+                            <button class="btn transition primary-btn">Order Now</button>
                         </div>
                         <div>
-                            <img src="./assets/images/header1.svg" alt="">
+                            <img src="./public/hero.svg" alt="">
                         </div>
                     </div>
                 </div>
             </section>
             <!-- CATEGORY SECTION -->
-            <section class="home-category" id="menu">
+            <section class="home-category | padding-block container" id="menu">
 
-                <h1 class="title">food category</h1>
+                <h1 class="title">Categories</h1>
 
                 <div class="box-container">
                     <a href="category.php?category=Burger" class="box">
@@ -60,11 +60,11 @@ include 'components/add_to_cart.php';
                     </a>
                     <a href="category.php?category=Fries" class="box">
                         <img src="assets/images/french-fries.png" alt="">
-                        <h3>French Fries</h3>
+                        <h3>Combo Meals</h3>
                     </a>
                     <a href="category.php?category=Drinks" class="box">
                         <img src="assets/images/drink.png" alt="">
-                        <h3>Drinks</h3>
+                        <h3>Fries Club</h3>
                     </a>
                 </div>
             </section>

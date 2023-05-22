@@ -1,17 +1,17 @@
 <header class="header">
     <div class="nav-wrapper">
-        <a href="index.php" class="logo">
+        <a href="./" class="logo">
             <i class="fa-solid fa-burger fa-2xl" style="color: #f1a409;"></i>
             <span>BURPGER</span>
         </a>
         <nav class="primary-navigation">
             <ul class="nav-list">
-                <li><span class="btn icons | material-icons-outlined md-40" id="close-btn">highlight_off</span></li>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="index.php#menu">Menu</a></li>
-                <li><a href="cart.php">Orders</a></li>
-                <li><a href="">Contacts</a></li>
+                <li><span class="btn transition icons | material-icons-outlined md-40" id="close-btn">highlight_off</span></li>
+                <li><a class="transition" href="./">Home</a></li>
+                <li><a class="transition" href="">About</a></li>
+                <li><a class="transition" href="./#menu">Menu</a></li>
+                <li><a class="transition" href="./cart.php">Orders</a></li>
+                <li><a class="transition" href="">Contacts</a></li>
             </ul>
         </nav>
         <div class="icons-container">
@@ -25,18 +25,18 @@
             ?>
             <ul class="nav-list-icons">
                 <li>
-                    <a href="">
+                    <a class="transition" href="">
                         <span class="icons | material-icons-outlined md-30">search</span>
                     </a>
                 </li>
                 <li>
-                    <a href="cart.php">
+                    <a class="transition" href="cart.php">
                         <span class="icons | material-icons-outlined md-30">shopping_cart</span>
                         <span id="cart-counter">(<?= $total_cart_items; ?>)</span>
                     </a>
                 </li>
-                <li><span class="btn icons | material-icons-outlined md-30" id="btn-account">account_circle</span></li>
-                <li><span class="btn icons | material-icons-outlined md-30" id="menu-btn">menu</span></li>
+                <li><span class="btn transition icons | material-icons-outlined md-30" id="btn-account">account_circle</span></li>
+                <li><span class="btn transition icons | material-icons-outlined md-30" id="menu-btn">menu</span></li>
             </ul>
         </div>
         <!-- <button class="button">Log In</button> -->
@@ -60,9 +60,9 @@
     <?php
     } else {
     ?>
-        <button id="login" class="button">Login</button>
+        <button id="login" class="btn transition primary-btn">Login</button>
         <p>or</p>
-        <button id="signup" class="button">Sign Up</button>
+        <button id="signup" class="btn transition secondary-btn">Sign Up</button>
     <?php
     }
     $select_profile->close();

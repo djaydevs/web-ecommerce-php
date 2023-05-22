@@ -15,13 +15,13 @@ if (isset($_POST['delete_item'])) {
    $id = $_POST['cid'];
    $item = "DELETE FROM cart WHERE id = '$id'";
    $res = mysqli_query($conn, $item);
-   $message[] = 'cart item deleted!';
+   $message[] = 'Items deleted from cart!';
 }
 
 if (isset($_POST['delete_all'])) {
    $delete_cart = "DELETE FROM cart WHERE user_id = '$user_id'";
    $res = mysqli_query($conn, $delete_cart);
-   $message[] = 'deleted all from cart!';
+   $message[] = 'All items deleted from cart!';
 }
 
 if (isset($_POST['update_qty'])) {
@@ -29,19 +29,18 @@ if (isset($_POST['update_qty'])) {
    $qty = mysqli_real_escape_string($conn, $_POST['qty']);
    $update_qty = "UPDATE cart SET quantity = '$qty' WHERE id = $cart_id";
    $res = mysqli_query($conn, $update_qty);
-   $message[] = 'cart quantity updated';
+   $message[] = 'Items quantity updated!';
 }
 
 $grand_total = 0;
 
-# ALERT MESSAGE ON THE HEADER
+# ALERT MESSAGE
 
- if(isset($message)){
-        foreach($message as $message){
-        echo '
+if (isset($message)) {
+   foreach ($message as $message) {
+      echo '
         <div class="message">
-            <span>'.$message.'</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+            <span class="fw-medium">' . $message . '</span>
         </div>
         <script>
         setTimeout(function() {
@@ -52,8 +51,8 @@ $grand_total = 0;
         }, 5000); // 5 seconds
         </script>
         ';
-        }
-    }
+   }
+}
 
 ?>
 

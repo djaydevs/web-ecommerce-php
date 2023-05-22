@@ -46,15 +46,15 @@ if (isset($_POST['add-product'])) {
     }
 }
 
-# ALERT MESSAGE ON THE HEADER
+# ALERT MESSAGE
 
 if (isset($message)) {
     foreach ($message as $message) {
         echo '
         <div class="message">
-            <span>' . $message . '</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+            <span class="fw-medium">' . $message . '</span>
         </div>
+        <script>
         setTimeout(function() {
             var messages = document.getElementsByClassName("message");
             while (messages[0]) {

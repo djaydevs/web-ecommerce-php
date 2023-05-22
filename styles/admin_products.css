@@ -15,34 +15,6 @@ p {
   text-align: center;
 }
 
-.message{
-  position: sticky;
-  top:0;
-  max-width: 1200px;
-  margin:0 auto;
-  background-color:  #f5f5f5;
-  padding:.9rem;
-  display: flex;
-  align-items: center;
-  gap:1rem;
-  justify-content: space-between;
-}
-
-.message span{
-  font-size: 2rem;
-  color:black;
-}
-
-.message i{
-  font-size: 1rem;
-  color:red;
-  cursor: pointer;
-}
-
-.message i:hover{
-  color:black;
-}
-
 .style-products form {
     max-width: 40rem;
     margin: 0 auto;

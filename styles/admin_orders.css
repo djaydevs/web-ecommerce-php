@@ -31,7 +31,7 @@ p {
     outline: none; border:none;
 }
  
- *::selection{
+*::selection{
     color:var(--white);
     background-color: var(--main-color);
 }

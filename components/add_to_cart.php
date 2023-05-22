@@ -1,39 +1,38 @@
-<?php 
+<?php
 
-    if(isset($_POST['add_to_cart'])) {
+if (isset($_POST['add_to_cart'])) {
 
-        if($user_id == '') {
-            header('location:login.php');
+    if ($user_id == '') {
+        header('location:login.php');
+    } else {
+
+        $prodID = mysqli_real_escape_string($conn, $_POST['pid']);
+        $prodName = mysqli_real_escape_string($conn, $_POST['name']);
+        $price = mysqli_real_escape_string($conn, $_POST['price']);
+        $image = mysqli_real_escape_string($conn, $_POST['image']);
+        $qty = mysqli_real_escape_string($conn, $_POST['qty']);
+
+        $check = "SELECT * FROM cart WHERE user_id = '$user_id' AND name = '$prodName'";
+        $result = mysqli_query($conn, $check);
+
+        if (mysqli_num_rows($result) > 0) {
+            $message[] = 'Successfully added to cart!';
         } else {
 
-            $prodID = mysqli_real_escape_string($conn, $_POST['pid']);
-            $prodName = mysqli_real_escape_string($conn, $_POST['name']);
-            $price = mysqli_real_escape_string($conn, $_POST['price']);
-            $image = mysqli_real_escape_string($conn, $_POST['image']);
-            $qty = mysqli_real_escape_string($conn, $_POST['qty']);
-
-            $check = "SELECT * FROM cart WHERE user_id = '$user_id' AND name = '$prodName'";
-            $result = mysqli_query($conn, $check);
-
-            if(mysqli_num_rows($result) > 0) {
-                $message[] = 'already added to cart!';
-            } else {
-
-                $add = "INSERT INTO cart (user_id, pid, name, price, quantity, image) VALUES ('$user_id', '$prodID', '$prodName', '$price', '$qty', '$image')";
-                $insertQuery = mysqli_query($conn, $add);
-                $message[] = "Already add to cart!";
-            }
+            $add = "INSERT INTO cart (user_id, pid, name, price, quantity, image) VALUES ('$user_id', '$prodID', '$prodName', '$price', '$qty', '$image')";
+            $insertQuery = mysqli_query($conn, $add);
+            $message[] = "Already added to cart!";
         }
     }
+}
 
-    # ALERT MESSAGE ON THE HEADER
+# ALERT MESSAGE
 
-    if(isset($message)){
-        foreach($message as $message){
+if (isset($message)) {
+    foreach ($message as $message) {
         echo '
         <div class="message">
-            <span>'.$message.'</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+            <span class="fw-medium">' . $message . '</span>
         </div>
         <script>
         setTimeout(function() {
@@ -44,7 +43,5 @@
         }, 5000); // 5 seconds
         </script>
         ';
-        }
     }
-?>
-
+}
