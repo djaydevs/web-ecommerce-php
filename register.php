@@ -122,8 +122,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body> 
-    <?php include 'components/loading.php'; ?>
-    <?php include 'components/main_header.php'; ?>
     <section class="form-section">
         <div class ="container">
             <!-- Sign up form-->

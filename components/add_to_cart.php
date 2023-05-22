@@ -35,6 +35,14 @@
             <span>'.$message.'</span>
             <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
         </div>
+        <script>
+        setTimeout(function() {
+            var messages = document.getElementsByClassName("message");
+            while (messages[0]) {
+                messages[0].remove();
+            }
+        }, 5000); // 5 seconds
+        </script>
         ';
         }
     }

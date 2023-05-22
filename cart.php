@@ -36,23 +36,24 @@ $grand_total = 0;
 
 # ALERT MESSAGE ON THE HEADER
 
-if (isset($message)) {
-   foreach ($message as $message) {
-      echo '
+ if(isset($message)){
+        foreach($message as $message){
+        echo '
         <div class="message">
-            <span>' . $message . '</span>
+            <span>'.$message.'</span>
             <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
         </div>
+        <script>
         setTimeout(function() {
             var messages = document.getElementsByClassName("message");
             while (messages[0]) {
-               messages[0].remove();
+                messages[0].remove();
             }
-         }, 5000); // 5 seconds
-         </script>
+        }, 5000); // 5 seconds
+        </script>
         ';
-   }
-}
+        }
+    }
 
 ?>
 

@@ -91,8 +91,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 <body>
-    <?php include 'components/loading.php'; ?>
-    <?php include 'components/main_header.php'; ?>
     <section class="form-section">
         <div class ="container">
             <!-- Login form -->
