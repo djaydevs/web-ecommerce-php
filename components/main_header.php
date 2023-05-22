@@ -10,7 +10,7 @@
                 <li><a class="transition" href="./">Home</a></li>
                 <li><a class="transition" href="">About</a></li>
                 <li><a class="transition" href="./#menu">Menu</a></li>
-                <li><a class="transition" href="./cart.php">Orders</a></li>
+                <li><a class="transition" href="./user_orders.php">Orders</a></li>
                 <li><a class="transition" href="./contact.php">Contacts</a></li>
             </ul>
         </nav>
