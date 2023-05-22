@@ -16,14 +16,14 @@ if (isset($_POST['add_to_cart'])) {
         $result = mysqli_query($conn, $check);
 
         if (mysqli_num_rows($result) > 0) {
-            $message[] = 'Successfully added to cart!';
+            $message[] = "Already added to cart!";
         } else {
 
             $add = "INSERT INTO cart (user_id, pid, name, price, quantity, image) VALUES ('$user_id', '$prodID', '$prodName', '$price', '$qty', '$image')";
             $insertQuery = mysqli_query($conn, $add);
-            $message[] = "Already added to cart!";
+            $message[] = "Successfully added to cart!";
         }
-    }
+    }  
 }
 
 # ALERT MESSAGE
@@ -45,3 +45,4 @@ if (isset($message)) {
         ';
     }
 }
+?>

@@ -101,7 +101,7 @@ if (isset($message)) {
                            <input type="number" name="qty" class="qty" value="<?php echo $row['quantity']; ?>" min="1" max="99" maxlength="2">
                            <button type="submit" class="fas fa-edit" name="update_qty"></button>
                         </div>
-                        <div class="sub-total"> sub total : <span>$<?php echo $sub_total = ($row['price'] * $row['quantity']); ?>/-</span> </div>
+                        <div class="sub-total"> sub total : <span>&#8369;<?php echo $sub_total = ($row['price'] * $row['quantity']); ?>/-</span> </div>
                      </form>
                <?php
                      $grand_total += $sub_total;

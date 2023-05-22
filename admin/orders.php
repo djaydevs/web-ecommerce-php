@@ -56,6 +56,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/admin_orders.css ?v=<?php echo time(); ?>">
     <title>Admin - Orders</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
       <p id="p-order">Orders</p>
@@ -78,7 +79,7 @@
                         <p> Number: <span><?= $fetch_orders['number']; ?></span> </p>
                         <p> Address: <span><?= $fetch_orders['address']; ?></span> </p>
                         <p> Total products: <span><?= $fetch_orders['total_products']; ?></span> </p>
-                        <p> Total price: <span>$<?= $fetch_orders['total_price']; ?>/-</span> </p>
+                        <p> Total price: <span>&#8369;<?= $fetch_orders['total_price']; ?>/-</span> </p>
                         <p> Payment method: <span><?= $fetch_orders['method']; ?></span> </p>
                         <form action="" method="POST">
                             <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
@@ -102,5 +103,22 @@
                 ?>
          </div>
 </section>
+<script>
+  $(document).ready(function() {
+    // Function to fetch new orders and update the DOM
+    function fetchOrders() {
+      $.ajax({
+        // Path to a new PHP file for fetching orders
+        url: 'fetch_orders.php',
+        method: 'POST',
+        success: function(response) {
+          $('.box-container').html(response);
+        }
+      });
+    }
+    // Load orders every 2 seconds
+    setInterval(fetchOrders, 2000);
+  });
+</script>
 </body>
 </html>

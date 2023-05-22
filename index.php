@@ -23,6 +23,7 @@ include 'components/add_to_cart.php';
     <link rel="stylesheet" type="text/css" href="./styles/styles.css ?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/8eb0534a39.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>BURPGER</title>
@@ -108,6 +109,8 @@ include 'components/add_to_cart.php';
                     }
                     ?>
                 </div>
+                </div>
+
                 <!-- <div class="more-btn">
                 <a href="menu.html" class="btn">veiw all</a>
                 </div> -->
@@ -117,5 +120,4 @@ include 'components/add_to_cart.php';
     <script src="./js/main-container.js"></script>
     <script src="./js/script.js"></script>
 </body>
-
 </html>
