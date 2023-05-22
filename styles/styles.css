@@ -725,6 +725,92 @@ header .profile .name{
 
 /* End for checkout */
 
+/* Start of contact */
+
+.contact .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 3rem;
+    background-color: white;
+}
+
+.contact .row .image {
+    flex: 1 1 30rem;
+}
+
+.contact .row .image img {
+    width: 100%;
+}
+
+.contact .row form {
+    flex: .5 .5 20rem;
+    border: .3rem solid #fed330;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact .row form .box {
+    margin: .5rem 0;
+    width: 100%;
+    border: .1rem solid black;
+    font-size: .8rem;
+    color: black;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.contact .row form h3 {
+    margin: .5rem 0;
+    margin-bottom: .8rem;
+    text-transform: uppercase;
+    color: black;
+    font-size: 2rem;
+}
+
+.contact .row form textarea {
+    height: 8rem;
+    resize: none;
+    overflow: auto;
+}
+
+.contact .row form .btn {
+    padding: 0.5rem 1.3rem;
+    background-color: white;
+    border: 3px solid #fed330;
+    font-size: .9rem;
+    color: #C07F00;
+    line-height: 1;
+    border-radius: 2rem;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 1px;
+    text-transform: capitalize;
+}
+
+.contact .row form .btn:hover {
+    background-color: #F79327;
+    color: white;
+}
+
+.contact .row .image .information {
+    display: inline-flex;
+    color: #555;
+    margin: 0.7rem 0 0 1rem;
+    align-items: center;
+    font-size: 0.95rem;
+    gap: .5rem;
+}
+  
+.contact .row .image .information .icon {
+  width: 25px;
+  margin-right: .3rem;
+}
+/* End of contact */
+
 /************* MEDIA QUERIES *************/
 
 @media screen and (max-width: 75rem) {

@@ -11,7 +11,7 @@
                 <li><a class="transition" href="">About</a></li>
                 <li><a class="transition" href="./#menu">Menu</a></li>
                 <li><a class="transition" href="./cart.php">Orders</a></li>
-                <li><a class="transition" href="">Contacts</a></li>
+                <li><a class="transition" href="./contact.php">Contacts</a></li>
             </ul>
         </nav>
         <div class="icons-container">
