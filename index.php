@@ -35,22 +35,22 @@ include 'components/add_to_cart.php';
         <?php include 'components/main_header.php'; ?>
         <main class="main-bg">
             <!-- HERO SECTION -->
-            <section class="hero | padding-block">
+            <section class="hero | padding-block-80">
                 <div class="container">
                     <div class="even-columns">
                         <div class="flow">
-                            <h1 class="fs-primary-heading fw-extrabold">Your home of the best delicious patties!<span><img src="./public/hero2.svg" alt=""></span></h1>
+                            <h1 class="fs-primary-heading fw-extrabold">Your home of the best delicious patties!</h1>
                             <p>Burpger is now online! Order your favorite burgers and combos with just few clicks at the comfort of your home.</p>
                             <button class="btn transition primary-btn">Order Now</button>
                         </div>
                         <div>
-                            <img src="./public/hero.svg" alt="">
+                            <img src="./assets/images/hero.svg" alt="">
                         </div>
                     </div>
                 </div>
             </section>
             <!-- CATEGORY SECTION -->
-            <section class="home-category | padding-block container" id="menu">
+            <section class="home-category | padding-block-50 container" id="menu">
 
                 <h1 class="title">Categories</h1>
 
@@ -109,15 +109,48 @@ include 'components/add_to_cart.php';
                     }
                     ?>
                 </div>
-                </div>
-
                 <!-- <div class="more-btn">
-                <a href="menu.html" class="btn">veiw all</a>
-                </div> -->
+                            <a href="menu.html" class="btn">veiw all</a>
+                            </div> -->
             </section>
         </main>
+        <footer id="contacts">
+            <section class="contact | container">
+                <div class="row">
+                    <div class="image">
+                        <img id="contacts-bg" src="./assets/images/contacts.png" alt="">
+                        <div class="info">
+                            <div class="information">
+                                <img src="./assets/icons/location.png" class="icon" alt="" />
+                                <p>124 Bikini Bottom, Cronch St.</p>
+                            </div>
+                            <div class="information">
+                                <img src="./assets/icons/mail.png" class="icon" alt="" />
+                                <p>service@burpger.com</p>
+                            </div>
+                            <div class="information">
+                                <img src="./assets/icons/phone.png" class="icon" alt="" />
+                                <p>123-456-789</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="" method="POST">
+                        <h3 class="third-heading fw-medium">Contact Us</h3>
+                        <input type="text" name="name" maxlength="50" class="box" placeholder="Name" required>
+                        <input type="email" name="email" maxlength="50" class="box" placeholder="Email" required>
+                        <textarea name="msg" class="box" required placeholder="Message" maxlength="500" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Send Message" name="send" class="send-btn | btn transition primary-btn">
+                    </form>
+                </div>
+            </section>
+            <div id="copyright">
+                <p>&copy; 2023 | Burpger Inc.<br><br>DISCLAIMER<br>Burpger Inc. is not a real fast food company.<br>For educational purposes only.</p>
+            </div>
+        </footer>
     </div>
     <script src="./js/main-container.js"></script>
     <script src="./js/script.js"></script>
 </body>
+
 </html>

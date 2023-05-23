@@ -185,8 +185,12 @@ a {
     overflow: hidden;
 }
 
-.padding-block {
+.padding-block-80 {
     padding-block: 5rem;
+}
+
+.padding-block-50 {
+    padding-block: 3.125rem;
 }
 
 .transition {
