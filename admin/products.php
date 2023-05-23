@@ -101,6 +101,40 @@ if (isset($_GET['delete'])) {
     # ADD DELETE QUERY FOR ADD TO CART...
 
 }
+#UPDATE PRODUCT FROM DATABASE AND FOLDER
+
+if (isset($_POST['update_product'])) {
+    $pid = mysqli_real_escape_string($conn, $_POST['pid']);
+    $prodName = mysqli_real_escape_string($conn, $_POST['name']);
+    $category = mysqli_real_escape_string($conn, $_POST['product-category']);
+    $price = mysqli_real_escape_string($conn, $_POST['price']);
+    $description = mysqli_real_escape_string($conn, $_POST['details']);
+    $oldImage = mysqli_real_escape_string($conn, $_POST['old_image']);
+
+    $image = mysqli_real_escape_string($conn, $_FILES['image']['name']);
+    $image_tmp_name = $_FILES['image']['tmp_name'];
+    $image_folder = '../assets/images/' . $image;
+
+    if ($image) {
+        if ($_FILES['image']['size'] > 2000000) {
+            $message = 'Image size is too large';
+        } else {
+            move_uploaded_file($image_tmp_name, $image_folder);
+            unlink('../assets/images/' . $oldImage);
+        }
+    } else {
+        $image = $oldImage;
+    }
+
+    $updateQuery = "UPDATE products SET name = '$prodName', category = '$category', price = '$price', image = '$image', description = '$description' WHERE product_ID = $pid";
+    $result = mysqli_query($conn, $updateQuery);
+    if ($result) {
+        $message = 'Product updated!';
+        header('location: home.php?display=products&message=' . urlencode($message));
+    } else {
+        $message = 'Failed to update product';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -164,7 +198,7 @@ if (isset($_GET['delete'])) {
                             <div class="category"><?php echo $row['category']; ?></div>
                             <div class="details"><?php echo $row['description']; ?></div>
                             <div class="flex-btn">
-                                <a href="update_product.php?update=<?php echo $row['product_ID']; ?>" class="option-btn">update</a>
+                                <button name="update" onclick="openForm(<?php echo $row['product_ID']; ?>)">Update</button>
                                 <a href="products.php?delete=<?php echo $row['product_ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
                             </div>
                         </div>
@@ -179,7 +213,72 @@ if (isset($_GET['delete'])) {
 
         </div>
     </section>
+    <div class="update-form" id="update-form">
+        <section class="update-products">
+            <h1 class="title"> UPDATE PRODUCTS </h1>
 
+            <!-- FOR DISPLAYING DATA IN UPDATE -->
+            <?php
+            $update_id = null;
+            if (isset($_GET['update'])) {
+                $update_id = mysqli_real_escape_string($conn, $_GET['update']);
+                $query = "SELECT * FROM products WHERE product_ID = '$update_id'";
+                $output = mysqli_query($conn, $query);
+
+            if ($output) {
+                if (mysqli_num_rows($output) > 0) {
+                    while ($row = $output->fetch_assoc()) {
+            ?>
+
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="old_image" value="<?php echo $row['image']; ?>">
+                            <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
+                            <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
+                            <input type="text" name="name" placeholder="Enter product name" required class="box" value="<?php echo $row['name']; ?>">
+                            <input type="text" name="price" min="0" placeholder="Enter product price" required class="box" value="<?php echo $row['price']; ?>">
+                            <select name="product-category" class="box" required>
+                                <option selected><?php echo $row['category']; ?></option>
+                                <option value="Burger">Burger</option>
+                                <option value="Fries">Fries</option>
+                                <option value="Drinks">Drinks</option>
+                            </select>
+                            <textarea name="details" required placeholder="Enter product description" class="box" cols="30" rows="5"><?php echo $row['description']; ?></textarea>
+                            <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
+                            <div class="flex-btn">
+                                <input type="submit" class="btn" value="Update Product" name="update_product">
+                                <a href="home.php?display=products" class="option-btn">CANCEL</a>
+                            </div>
+                        </form>
+
+            <?php
+                    }
+                } else {
+                    echo '<p class="empty">NO PRODUCTS FOUND !</p>';
+                }
+            }
+        }
+            ?>
+        </section>
+    </div>
+    <script>
+    var selectedProductID = null;
+    //Store product ID in URL
+    function openForm(productID) {
+        selectedProductID = productID;
+        var url = 'home.php?display=products&update=' + productID;
+        window.location.href = url;
+    }
+
+    // Check if a product ID is stored in the URL
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var urlParams = new URLSearchParams(window.location.search);
+        var updateParam = urlParams.get('update');
+        if (updateParam) {
+            selectedProductID = updateParam;
+            document.getElementById("update-form").style.display = "block";
+        }
+    });
+</script>
 </body>
 
 </html>

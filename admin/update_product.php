@@ -69,10 +69,7 @@ if (isset($_POST['update_product'])) {
 </head>
 
 <body>
-    <p>Update Products</p>
-
     <section class="update-products">
-
         <h1 class="title"> UPDATE PRODUCTS </h1>
 
         <!-- FOR DISPLAYING DATA IN UPDATE -->
@@ -102,7 +99,7 @@ if (isset($_POST['update_product'])) {
                         <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
                         <div class="flex-btn">
                             <input type="submit" class="btn" value="Update Product" name="update_product">
-                            <a href="products.php" class="option-btn">CANCEL</a>
+                            <a href="home.php?display=products" class="option-btn">CANCEL</a>
                         </div>
                     </form>
 
