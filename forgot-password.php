@@ -104,7 +104,7 @@ if (isset($_POST['send'])) {
                 <?php echo $message; ?>
                 <form action="" method="post">
                     <div class="inputs">
-                        <label for="email">Email</label>
+                        <label class="fw-medium" for="email">Email</label>
                         <input type="email" class="email" name="email" placeholder="some@example.com" required>
                     </div>
                     <button name="send" class="btn transition primary-btn" type="submit">Send Reset Link</button>
