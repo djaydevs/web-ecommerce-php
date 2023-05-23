@@ -1,3 +1,21 @@
+<?php 
+    include '../components/connection.php';
+
+    // DELETE  
+    if(isset($_GET['deleteid'])){
+        $id = $_GET['deleteid'];
+
+        $query = "DELETE FROM users WHERE id='$id'";
+        $query_run = mysqli_query($conn, $query);
+
+        if($query_run){
+            echo '<script> alert("Data Deleted"); </script>';
+        }else{
+            echo '<script> alert("Data Not Deleted"); </script>';
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,18 +91,6 @@
                     </thead>
                     <tbody>
                         <?php
-                        // Establish a database connection
-                        $serverName = "localhost";
-                        $userName = "root";
-                        $password = "";
-                        $dbName = "cafe_db";
-
-                        $conn =  mysqli_connect($serverName, $userName, $password, $dbName);
-
-                        if (!$conn) {
-                            die('Connection Failed' . mysqli_connect_error());
-                        }
-
                         // query 
                         $query = "SELECT * FROM users";
                         $query_run = mysqli_query($conn, $query);
@@ -99,7 +105,7 @@
                                     <td><?= $row['number']; ?></td>
                                     <td>
                                         <button class="delete-btn">
-                                            <a href="customer_account_delete.php?deleteid=<?= $row['id']; ?>" onclick="return confirm('Delete this account?');">Delete</a>
+                                            <a href="customer_account.php?deleteid=<?php echo $row['id']; ?>" onclick="return confirm('Delete this account?');">Delete</a>
                                         </button>
                                     </td>
                                 </tr>
