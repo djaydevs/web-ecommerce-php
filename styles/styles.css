@@ -16,6 +16,11 @@
 :where(.flow :not(:first-child)) {
     margin-top: 3em;
 }
+
+.active {
+    color: var(--clr-accent-color);
+}
+
 /* LOADING DIV */
 .loading-page {
     position: absolute;
@@ -135,9 +140,9 @@ header {
 }
 
 /* HERO */
-.hero {
-    /* height: 100vh; */
-}
+/* .hero {
+    height: 100vh;
+} */
 
 /* STYLE FOR PROFILE  */
 .profile {

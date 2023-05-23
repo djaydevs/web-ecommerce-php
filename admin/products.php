@@ -81,7 +81,7 @@ if (isset($_GET['message'])) {
         }, 5000); // 5 seconds
     </script>
     ';
-    }
+}
 
 # DELETE PRODUCTS FROM DATABASE AND IMAGE FOLDER (LOCAL STORAGE)
 
@@ -144,75 +144,70 @@ if (isset($_POST['update_product'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../styles/admin_products.css ?v=<?php echo time(); ?>">
-    <title>Admin - Products</title>
+    <link rel="stylesheet" type="text/css" href="../styles/admin_styles.css ?v=<?php echo time(); ?>">
 </head>
 
 <body>
-    <!-- ADD PRODUCTS -->
-
-    <section class="style-products">
-
-        <h1 class="title">Add New Products</h1>
-
-        <form action="" method="POST" enctype="multipart/form-data">
-            <div class="flex">
-                <div class="input-box">
-                    <input type="text" name="product-name" class="box" required placeholder="Enter product name">
-                    <select name="product-category" class="box" required>
-                        <option value="" selected disabled>Select Category</option>
-                        <option value="Burger">Burger</option>
-                        <option value="Fries">Fries</option>
-                        <option value="Drinks">Drinks</option>
-                    </select>
+    <div class="section-grid">
+        <!-- ADD PRODUCTS -->
+        <section class="style-products">
+            <h2 class="fs-secondary-heading fw-semi-bold">Add New Products</h2>
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="flex">
+                    <div class="input-box">
+                        <input type="text" name="product-name" class="box" required placeholder="Product Name">
+                        <select name="product-category" class="box" required>
+                            <option value="" selected disabled>Select Category</option>
+                            <option value="Burger">Burger</option>
+                            <option value="Fries">Fries</option>
+                            <option value="Drinks">Drinks</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <input type="number" min="0" name="product-price" class="box" required placeholder="Product Price">
+                        <input type="file" name="image" required class="box" accept="image/jpg, image/.jpeg, image/png, image/webp">
+                    </div>
                 </div>
-                <div class="input-box">
-                    <input type="number" min="0" name="product-price" class="box" required placeholder="Enter product price">
-                    <input type="file" name="image" required class="box" accept="image/jpg, image/.jpeg, image/png, image/webp">
-                </div>
-            </div>
-            <textarea name="product-details" class="box" cols="25" rows="5" required placeholder="Enter product details"></textarea>
-            <input type="submit" class="btn" value="Add Products" name="add-product">
-        </form>
-    </section>
+                <textarea name="product-details" class="box" cols="25" rows="5" required placeholder="Product Details"></textarea>
+                <input type="submit" class="btn transition primary-btn" value="Add Products" name="add-product">
+            </form>
+        </section>
+        <!-- SHOW PRODUCTS -->
+        <?php
+        $select = "SELECT * FROM `products`";
+        $rslt = mysqli_query($conn, $select);
+        ?>
+        <section class="show-products">
+            <div class="box-container">
 
-    <!-- SHOW PRODUCTS -->
-
-    <?php
-    $select = "SELECT * FROM `products`";
-    $rslt = mysqli_query($conn, $select);
-    ?>
-
-    <section class="show-products">
-        <div class="box-container">
-
-            <?php
-            if ($rslt == true) {
-                if ($rslt->num_rows > 0) {
-                    while ($row = $rslt->fetch_assoc()) {
-            ?>
-                        <div class="box">
-                            <div class="price">&#8369;<?php echo $row['price']; ?>/-</div>
-                            <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
-                            <div class="name"><?php echo $row['name']; ?></div>
-                            <div class="category"><?php echo $row['category']; ?></div>
-                            <div class="details"><?php echo $row['description']; ?></div>
-                            <div class="flex-btn">
-                                <button name="update" onclick="openForm(<?php echo $row['product_ID']; ?>)">Update</button>
-                                <a href="products.php?delete=<?php echo $row['product_ID']; ?>" class="delete-btn" onclick="return confirm('Delete this product?');">delete</a>
+                <?php
+                if ($rslt == true) {
+                    if ($rslt->num_rows > 0) {
+                        while ($row = $rslt->fetch_assoc()) {
+                ?>
+                            <div class="box">
+                                <div class="price">&#8369;<?php echo $row['price']; ?>/-</div>
+                                <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
+                                <div class="name"><?php echo $row['name']; ?></div>
+                                <div class="category"><?php echo $row['category']; ?></div>
+                                <div class="details"><?php echo $row['description']; ?></div>
+                                <div class="flex-btn">
+                                    <button name="update" onclick="openForm(<?php echo $row['product_ID']; ?>)">Update</button>
+                                    <a href="products.php?delete=<?php echo $row['product_ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+                                </div>
                             </div>
-                        </div>
 
-            <?php
+                <?php
+                        }
+                    } else {
+                        echo '<p class="empty"> No products added yet! </p>';
                     }
-                } else {
-                    echo '<p class="empty"> No products added yet! </p>';
                 }
-            }
-            ?>
+                ?>
 
-        </div>
-    </section>
+            </div>
+        </section>
+    </div>
     <div class="update-form" id="update-form">
         <section class="update-products">
             <h1 class="title"> UPDATE PRODUCTS </h1>
@@ -225,61 +220,59 @@ if (isset($_POST['update_product'])) {
                 $query = "SELECT * FROM products WHERE product_ID = '$update_id'";
                 $output = mysqli_query($conn, $query);
 
-            if ($output) {
-                if (mysqli_num_rows($output) > 0) {
-                    while ($row = $output->fetch_assoc()) {
+                if ($output) {
+                    if (mysqli_num_rows($output) > 0) {
+                        while ($row = $output->fetch_assoc()) {
             ?>
 
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="old_image" value="<?php echo $row['image']; ?>">
-                            <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
-                            <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
-                            <input type="text" name="name" placeholder="Enter product name" required class="box" value="<?php echo $row['name']; ?>">
-                            <input type="text" name="price" min="0" placeholder="Enter product price" required class="box" value="<?php echo $row['price']; ?>">
-                            <select name="product-category" class="box" required>
-                                <option selected><?php echo $row['category']; ?></option>
-                                <option value="Burger">Burger</option>
-                                <option value="Fries">Fries</option>
-                                <option value="Drinks">Drinks</option>
-                            </select>
-                            <textarea name="details" required placeholder="Enter product description" class="box" cols="30" rows="5"><?php echo $row['description']; ?></textarea>
-                            <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
-                            <div class="flex-btn">
-                                <input type="submit" class="btn" value="Update Product" name="update_product">
-                                <a href="home.php?display=products" class="option-btn">CANCEL</a>
-                            </div>
-                        </form>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="old_image" value="<?php echo $row['image']; ?>">
+                                <input type="hidden" name="pid" value="<?php echo $row['product_ID']; ?>">
+                                <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
+                                <input type="text" name="name" placeholder="Enter product name" required class="box" value="<?php echo $row['name']; ?>">
+                                <input type="text" name="price" min="0" placeholder="Enter product price" required class="box" value="<?php echo $row['price']; ?>">
+                                <select name="product-category" class="box" required>
+                                    <option selected><?php echo $row['category']; ?></option>
+                                    <option value="Burger">Burger</option>
+                                    <option value="Fries">Fries</option>
+                                    <option value="Drinks">Drinks</option>
+                                </select>
+                                <textarea name="details" required placeholder="Enter product description" class="box" cols="30" rows="5"><?php echo $row['description']; ?></textarea>
+                                <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
+                                <div class="flex-btn">
+                                    <input type="submit" class="btn" value="Update Product" name="update_product">
+                                    <a href="home.php?display=products" class="option-btn">CANCEL</a>
+                                </div>
+                            </form>
 
             <?php
+                        }
+                    } else {
+                        echo '<p class="empty">NO PRODUCTS FOUND !</p>';
                     }
-                } else {
-                    echo '<p class="empty">NO PRODUCTS FOUND !</p>';
                 }
             }
-        }
             ?>
         </section>
     </div>
-    
-<script>
-    var selectedProductID = null;
-    //Store product ID in URL
-    function openForm(productID) {
-        selectedProductID = productID;
-        var url = 'home.php?display=products&update=' + productID;
-        window.location.href = url;
-    }
-
-    // Check if a product ID is stored in the URL
-    window.addEventListener('DOMContentLoaded', (event) => {
-        var urlParams = new URLSearchParams(window.location.search);
-        var updateParam = urlParams.get('update');
-        if (updateParam) {
-            selectedProductID = updateParam;
-            document.getElementById("update-form").style.display = "block";
+    <script>
+        var selectedProductID = null;
+        //Store product ID in URL
+        function openForm(productID) {
+            selectedProductID = productID;
+            var url = 'home.php?display=products&update=' + productID;
+            window.location.href = url;
         }
-    });
-</script>
-</body>
 
+        // Check if a product ID is stored in the URL
+        window.addEventListener('DOMContentLoaded', (event) => {
+            var urlParams = new URLSearchParams(window.location.search);
+            var updateParam = urlParams.get('update');
+            if (updateParam) {
+                selectedProductID = updateParam;
+                document.getElementById("update-form").style.display = "block";
+            }
+        });
+    </script>
+</body>
 </html>

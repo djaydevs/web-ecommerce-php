@@ -74,7 +74,7 @@ if (isset($_POST['login'])) {
                         <label class="fw-medium" for="username">Username</label>
                         <input type="text" class="username" name="username" placeholder="username" required>
                     </div>
-                    <div>
+                    <div class="inputs">
                         <label class="fw-medium" for="password">Password</label>
                         <input type="password" class="password" name="password" placeholder="6 or more characters" required>
                     </div>

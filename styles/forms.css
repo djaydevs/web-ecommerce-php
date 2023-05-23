@@ -96,6 +96,10 @@ label {
     color: var(--clr-primary-color);
 }
 
+.form-content2 p {
+    padding-top: 0.8em;
+}
+
 form input {
     outline: none;
     margin-bottom: 15px;
