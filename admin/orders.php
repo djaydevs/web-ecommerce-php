@@ -102,7 +102,8 @@
                         <form action="" method="POST">
                             <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
                             <select name="payment_status" class="drop-down">
-                                <option value="" disabled><?= $fetch_orders['payment_status'];?></option>
+                            <option value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
+                                <option value="pending">Pending</option>
                                 <option value="completed">Completed</option>
                             </select>
                             <div class="flex-btn">
@@ -133,8 +134,8 @@
                     }
                 });
             }
-            // Load orders every 2 seconds
-            setInterval(fetchOrders, 2000);
+            // Load orders every 5 seconds
+            setInterval(fetchOrders, 5000);
         });
     </script>
 </body>
