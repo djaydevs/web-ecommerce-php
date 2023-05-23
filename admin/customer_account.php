@@ -9,10 +9,28 @@
         $query_run = mysqli_query($conn, $query);
 
         if($query_run){
-            echo '<script> alert("Data Deleted"); </script>';
+            $message = 'Account successfully deleted!';
+            header('location: home.php?display=customer_account&message=' . urlencode($message));
         }else{
             echo '<script> alert("Data Not Deleted"); </script>';
         }
+    }
+    //Bring the alert message after redirecting page
+    if (isset($_GET['message'])) {
+        $message = $_GET['message'];
+        echo '
+        <div class="message">
+            <span>' . $message . '</span>
+        </div>
+        <script>
+            setTimeout(function() {
+                var messages = document.getElementsByClassName("message");
+                while (messages[0]) {
+                    messages[0].remove();
+                }
+            }, 5000); // 5 seconds
+        </script>
+        ';
     }
 ?>
 
@@ -24,54 +42,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../styles/admin_customaccount.css?v=<?php echo time(); ?>">
-    <style>
-        .container-body {
-            padding: 10px;
-        }
-
-        .content-table {
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.9em;
-            width: 1000px;
-        }
-
-        .content-table thead tr {
-            text-align: left;
-            font-weight: bold;
-        }
-
-        .content-table th,
-        .content-table td {
-            padding: 12px 15px;
-        }
-
-        .content-table tbody tr {
-            border-bottom: 1px solid #ddd;
-        }
-
-        .content-table tbody tr:nth-of-type(even) {
-            background-color: #d7d7d7;
-        }
-
-        .delete-btn {
-            color: white;
-            width: 70px;
-            height: 35px;
-            border: none;
-            border-radius: 3px;
-            background-color: orange;  
-        }
-        .delete-btn a {
-        color: white;
-        text-decoration: none;
-        }
-        .delete-btn:hover{
-            background-color: red;  
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-
 <body>
     <div class="container">
         <div class="container-body">
@@ -89,8 +61,10 @@
                             <th>Delete</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="customerTableBody">
                         <?php
+                        // Function to fetch user accounts from the database
+                       
                         // query 
                         $query = "SELECT * FROM users";
                         $query_run = mysqli_query($conn, $query);
@@ -127,7 +101,24 @@
             </div>
         </div>
     </div>
+<script>
+    // Function to refresh the table using AJAX
+    function refreshTable() {
+        $.ajax({
+            url: 'fetch_user_accounts.php',
+            type: 'GET',
+            success: function(response) {
+                // Refresh the table with updated data
+                $('#customerTableBody').html(response);
+            },
+            error: function() {
+                alert('Error occurred while refreshing the table.');
+            }
+        });
+    }
 
+    // Refresh the table every 5 seconds
+    setInterval(refreshTable, 5000);
+</script>
 </body>
-
 </html>

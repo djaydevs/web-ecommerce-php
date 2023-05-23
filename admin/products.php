@@ -199,7 +199,7 @@ if (isset($_POST['update_product'])) {
                             <div class="details"><?php echo $row['description']; ?></div>
                             <div class="flex-btn">
                                 <button name="update" onclick="openForm(<?php echo $row['product_ID']; ?>)">Update</button>
-                                <a href="products.php?delete=<?php echo $row['product_ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+                                <a href="products.php?delete=<?php echo $row['product_ID']; ?>" class="delete-btn" onclick="return confirm('Delete this product?');">delete</a>
                             </div>
                         </div>
 
@@ -260,7 +260,8 @@ if (isset($_POST['update_product'])) {
             ?>
         </section>
     </div>
-    <script>
+    
+<script>
     var selectedProductID = null;
     //Store product ID in URL
     function openForm(productID) {
