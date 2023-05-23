@@ -1,0 +1,37 @@
+@import url("props_resets.css");
+
+:root{
+    --main-color:#4834d4;
+    --red:#e74c3c;
+    --orange:#f39c12;
+    --black:#34495e;
+    --white:#fff;
+    --green: #11b80b;
+    --light-bg:#f5f5f5;
+    --light-color:#999;
+    --border:.2rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --clr-primary-color:hsl(40, 93%, 49%);
+}
+
+body {
+    position: relative;
+}
+
+.dashboard .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 23rem);
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard .box-container .box{
+    text-align: center;
+    background-color: var(--white);
+    border:var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    text-align: center;
+    padding:1.5rem;
+ }
