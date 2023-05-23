@@ -1,24 +1,24 @@
-<?php 
-    session_start();
-    require 'components/connection.php';
-    $message ="";
+<?php
+session_start();
+require 'components/connection.php';
+$message = "";
 
-    if(isset($_SESSION['user_id'])){
-        $user_id = $_SESSION['user_id'];
-     }else{
-        $user_id = '';
-     };
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+} else {
+    $user_id = '';
+};
 
-    if(isset($_GET['verification'])){
-        // Check if the code exists in the 'users' table
-        if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE code='{$_GET['verification']}'")) > 0) {
-            
-            // Update the 'code' column in the 'users' table
-            $query = mysqli_query($conn, "UPDATE users SET code='' WHERE code='{$_GET['verification']}'");
+if (isset($_GET['verification'])) {
+    // Check if the code exists in the 'users' table
+    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE code='{$_GET['verification']}'")) > 0) {
 
-            if ($query) {
-                $message = "<div class='alert alert-success'>Account verification has been successfully completed!</div>";
-                echo "<script>
+        // Update the 'code' column in the 'users' table
+        $query = mysqli_query($conn, "UPDATE users SET code='' WHERE code='{$_GET['verification']}'");
+
+        if ($query) {
+            $message = "<div class='alert alert-success'>Account verification has been successfully completed!</div>";
+            echo "<script>
                     setTimeout(function() {
                         var messageElement = document.querySelector('.alert-success');
                         if (messageElement) {
@@ -26,32 +26,32 @@
                         }
                     }, 10000);
                   </script>";
-            }
-        } else {
-            // Redirect to the login page if the code does not exist
-            header("Location: login.php");
         }
+    } else {
+        // Redirect to the login page if the code does not exist
+        header("Location: login.php");
     }
+}
 
-    if(isset($_POST['login'])){
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $password = mysqli_real_escape_string($conn, md5($_POST['password']));
+if (isset($_POST['login'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, md5($_POST['password']));
 
-        $sqlSelect = "SELECT * FROM users WHERE email='{$email}' AND password='{$password}'";
-        $result = mysqli_query($conn, $sqlSelect);
+    $sqlSelect = "SELECT * FROM users WHERE email='{$email}' AND password='{$password}'";
+    $result = mysqli_query($conn, $sqlSelect);
 
-        // Check if the user exists and the account is verified
-        if(mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
+    // Check if the user exists and the account is verified
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
 
-            // Set the session variable and redirect to the home page
-            if(empty($row['code'])){
-                $_SESSION['user_id'] = $row['id'];
-                header("Location: index.php");
-            } else{
-                // Display an error message if the account is not verified
-                $message = "<div class='alert alert-info'>Verifiy your account first !</div>";
-                echo "<script>
+        // Set the session variable and redirect to the home page
+        if (empty($row['code'])) {
+            $_SESSION['user_id'] = $row['id'];
+            header("Location: index.php");
+        } else {
+            // Display an error message if the account is not verified
+            $message = "<div class='alert alert-info'>Verifiy your account first !</div>";
+            echo "<script>
                     setTimeout(function() {
                         var messageElement = document.querySelector('.alert-info');
                         if (messageElement) {
@@ -59,11 +59,11 @@
                         }
                     }, 10000);
                   </script>";
-            }
-        } else {
-                // Display an error message if the Email and password do not match
-                $message = "<div class='alert alert-danger'>Email or password do not match !</div>";
-                echo "<script>
+        }
+    } else {
+        // Display an error message if the Email and password do not match
+        $message = "<div class='alert alert-danger'>Email or password do not match !</div>";
+        echo "<script>
                 setTimeout(function() {
                     var messageElement = document.querySelector('.alert-danger');
                     if (messageElement) {
@@ -71,11 +71,12 @@
                     }
                 }, 10000);
               </script>";
-        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,31 +90,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
+
 <body>
-    <section class="form-section">
-        <div class ="container">
+    <section class="form-section | padding-block-80">
+        <div class="grid-container">
             <!-- Login form -->
-            <div class="form-grid">
-                <div class="main">
-                    <div class="content">
-                        <h2>Login</h2>
-                        <?php echo $message; ?>
-                        <form action="" method="post">
-                        <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
-                        <input type="password" class="password" name="password" placeholder="Enter Your Password" style="margin-bottom: 2px;" required>
-                        <p><a href="forgot-password.php" style="margin-top: 15px; margin-bottom: 15px; display: block;" style="margin-top: 15px;">Forgot Password?</a></p>
-                        <button name="login" class="btn" type="submit">Login</button>
-                        </form>
-                        <div class="intent">
-                            <p>Create Account! <a href="register.php">Sign up</a>.</p>
-                        </div>
+            <div class="form-logo">
+                <a href="./" class="transition logo">
+                    <i class="fa-solid fa-burger fa-2xl" style="color: #f1a409;"></i>
+                    <span class="fw-black">BURPGER</span>
+                </a>
+            </div>
+            <div class="form-content | flow">
+                <h2 class="fs-secondary-heading fw-semi-bold">Login</h2>
+                <?php echo $message; ?>
+                <form action="" method="post">
+                    <div class="inputs">
+                        <label class="fw-medium" for="email">Email</label>
+                        <input type="email" class="email" name="email" placeholder="some@example.com" required>
                     </div>
-                </div>
+                    <div class="inputs">
+                        <label class="fw-medium" for="password">Password</label>
+                        <input type="password" class="password" name="password" placeholder="6 characters or more" required>
+                        <p><a class="transition fw-medium" href="forgot-password.php">Forgot Password?</a></p>
+                    </div>
+                    <button name="login" class="btn transition primary-btn" type="submit">Login</button>
+                </form>
+                <p>No account yet? <a class="transition fw-medium" href="register.php">Sign up</a></p>
             </div>
             <!-- End of form -->
         </div>
-    </section> 
-<script src="./js/main-container.js"></script>
-<script src="./js/script.js"></script>
+    </section>
+    <script src="./js/main-container.js"></script>
+    <script src="./js/script.js"></script>
 </body>
+
 </html>

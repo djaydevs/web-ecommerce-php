@@ -1,11 +1,4 @@
 @import url('props_resets.css');
-.container {
-    --max-width: 1110px;
-    --container-padding: 1rem;
-  
-    width: min(var(--max-width), 100% - (var(--container-padding) * 2));
-    margin-inline: auto;
-}
 
 /* LOADING DIV */
 .loading-page {
@@ -18,7 +11,7 @@
 }
 
 #loading-svg {
-    width: 10em;
+    width: 9.375rem;
     margin: 0 auto;
     stroke: var(--clr-primary-color);
     fill: var(--clr-primary-color);
@@ -127,11 +120,7 @@ header {
 
 /* HERO */
 .hero {
-    height: 100vh;
-}
-
-:where(.flow :not(:first-child)) {
-    margin-top: 3em;
+    /* height: 100vh; */
 }
 
 /* STYLE FOR PROFILE  */
@@ -881,6 +870,7 @@ footer {
 /************* MEDIA QUERIES *************/
 
 @media screen and (max-width: 75rem) {
+
     .fs-primary-heading {
         font-size: var(--fs-850);
     }
@@ -888,6 +878,10 @@ footer {
     .nav-list {
         font-size: var(--fs-300);
         gap: clamp(1rem, 3vw, 2rem);
+    }
+
+    .hero {
+        height: auto;
     }
 
     /* BUTTONS */
@@ -924,6 +918,11 @@ footer {
 }
 
 @media screen and (max-width: 48rem) {
+    #loading-svg {
+        width: 6.25rem;
+    }
+
+    /* HEADER */
     #menu-btn, #close-btn {
         display: block;
     }
@@ -945,6 +944,22 @@ footer {
         to {
           right: 0;
         }
+    }
+
+    .logo i {
+        font-size: var(--fs-600);
+    }
+
+    .logo span {
+        font-size: var(--fs-600);
+    }
+
+    .material-icons-outlined.md-30 {
+        font-size: 1.5rem;
+    }
+
+    #cart-counter {
+        font-size: 0.6rem;
     }
 
     .nav-list {
@@ -972,12 +987,5 @@ footer {
     }
     #copyright p {
         font-size: var(--fs-100);
-    }
-}
-
-@media (min-width: 48rem) {
-    .even-columns {
-      grid-auto-flow: column;
-      grid-auto-columns: 1fr;
     }
 }
