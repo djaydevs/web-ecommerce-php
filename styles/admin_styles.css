@@ -1,8 +1,8 @@
 @import url("props_resets.css");
 
 body {
-  position: fixed;
-  /* overflow: hidden; */
+  position: relative;
+  overflow: hidden;
 }
 
 /************* GRID CONTAINER *************/
@@ -11,6 +11,14 @@ body {
   display: grid;
   margin: 0 auto;
   grid-template-columns: 256px auto;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 500px auto;
+  gap: 1em;
+  margin: 0 auto;
+  height: 100%;
 }
 
 /************* SIDEBAR *************/
@@ -98,10 +106,167 @@ aside .sidebar a.active {
   height: 4.375rem;  
 }
 
+.admin-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /************* BUTTONS *************/
 
 #btn-menu, #btn-close {
   display: none;
+}
+
+/************* PRODUCTS *************/
+.style-products {
+  margin: 1em;
+  background-color: #f5f5f5;
+}
+
+.style-products h2 {
+  text-align: center;
+  margin: 0.5em 0;
+} 
+
+.style-products form {
+  height: auto;
+  padding: 2em;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 .5rem 1rem var(--clr-neutral-300);
+  background-color: white;
+  border: 20rem;
+}
+
+.style-products form .box {
+  outline: none;
+  margin-bottom: 1em;
+  font-size: var(--fs-400);
+  color: black;
+  text-align: left;
+  padding: 14px 20px;
+  width: 100%;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid var(--clr-neutral-300);
+  border-radius: 16px;
+  transition: 0.3s all ease;
+}
+
+.style-products form .box:focus {
+  border-color: var(--clr-accent-color);
+}
+
+.style-products textarea {
+height: 9rem;
+resize: none;
+}
+
+.show-products .box-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, 20rem);
+gap: 1.5rem;
+align-items: flex-start;
+justify-content: center;
+}
+
+.show-products .box-container .box {
+text-align: center;
+border: .2rem solid black;
+box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+background-color: white;
+border-radius: 1rem;
+padding: 1rem;
+position: relative;
+}
+
+.show-products .box-container .box .price {
+position: absolute;
+top: .8rem;
+left: .8rem;
+padding: .5rem;
+font-size: 1rem;
+color: white;
+background-color: red;
+border-radius: .3rem;
+}
+
+.show-products .box-container .box img {
+width: 100%;
+margin-bottom: 1rem;
+}
+
+.show-products .box-container .box .name {
+margin: .5rem 0;
+font-size: 1.5rem;
+color: black;
+}
+
+.show-products .box-container .box .category {
+font-size: 1.3rem;
+color: orange;
+}
+
+.show-products .box-container .box .details {
+padding-top: 1rem;
+font-size: .8rem;
+line-height: 1.5;
+}
+
+/* UPDATE PRODUCTS */
+
+.update-products form{
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  border: 2rem solid black;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  background-color: #f5f5f5;
+  border: 20rem;
+}
+
+.update-products form img {
+height: 20rem;
+width: 20rem;
+object-fit: cover;
+margin-bottom: 1rem;
+display: initial;
+}
+
+.update-products form .box {
+width: 90%;
+border: .2rem solid black;
+background-color: white;
+border-radius: .9rem;
+padding: .5rem .8rem;
+font-size: 1rem;
+color: black;
+margin: .5rem 0;
+}
+
+.empty {
+padding: 1rem;
+background: white;
+color: red;
+border-radius: .9rem;
+border: .2rem solid black;
+font-size: 1rem;
+text-align: center;
+box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+/* Overlapp css */
+
+
+.update-form {
+position: relative;
+top: -912px;
+z-index: 1;
+background-color: #f5f5f5;
+height: 100%;
+display: none;
 }
 
 /************* MEDIA QUERIES *************/

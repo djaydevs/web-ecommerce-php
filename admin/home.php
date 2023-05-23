@@ -13,6 +13,7 @@ if (!isset($admin_id)) {
 };
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +40,9 @@ if (!isset($admin_id)) {
         <button class="btn">
           <span id="btn-menu" class="material-icons-sharp md-35">menu</span>
         </button>
+        <div class="admin-profile">
+          <h3>Welcome back, Admin!</h3>
+        </div>
       </div>
       <?php
       // switch between sidebar links and display contents to this main section
