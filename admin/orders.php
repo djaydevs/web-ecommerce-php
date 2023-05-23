@@ -1,50 +1,68 @@
 <?php
 
-require '../components/connection.php';
-// Check if session is already active before staring new session
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+    require '../components/connection.php';
+    // Check if session is already active before staring new session
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
-$admin_id = $_SESSION['admin_id'];
-if (!isset($admin_id)) {
-    header('location: admin_login.php');
-};
-//Update orders payment status
-if (isset($_POST['update_payment'])) {
+    $admin_id = $_SESSION['admin_id'];
+    if (!isset($admin_id)) {
+        header('location: admin_login.php');
+    };
+    //Update orders payment status
+    if (isset($_POST['update_payment'])) {
 
-    $order_id = $_POST['order_id'];
-    $payment_status = $_POST['payment_status'];
-    $update_status = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
-    $update_status->execute([$payment_status, $order_id]);
-    $message[] = 'Payment status updated!';
-}
-//Delete orders
-if (isset($_GET['delete'])) {
-    $delete_id = $_GET['delete'];
-    $delete_order = $conn->prepare("DELETE FROM `orders` WHERE id = ?");
-    $delete_order->execute([$delete_id]);
-    $message[] = 'Order successfully deleted !';
-}
-
-// Alert message
-if (isset($message)) {
-    foreach ($message as $message) {
+        $order_id = $_POST['order_id'];
+        $payment_status = $_POST['payment_status'];
+        $update_status = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
+        $update_status->execute([$payment_status, $order_id]);
+        $message[] = 'Payment status updated!';
+    }
+    //Delete orders
+    if (isset($_GET['delete'])) {
+        $delete_id = $_GET['delete'];
+        $delete_order = $conn->prepare("DELETE FROM `orders` WHERE id = ?");
+        $delete_order->execute([$delete_id]);
+        $message = 'Order successfully deleted!';
+        header('location: home.php?display=orders&message=' . urlencode($message));
+        exit();
+    }
+    // Alert message
+    if (isset($message)) {
+        foreach ($message as $message) {
+            echo '
+            <div class="message">
+                <span>' . $message . '</span>
+            </div>
+            <script>
+            setTimeout(function() {
+                var messages = document.getElementsByClassName("message");
+                while (messages[0]) {
+                    messages[0].remove();
+                }
+            }, 5000); // 5 seconds
+            </script>
+            ';
+        }
+    }
+    //Bring the alert message after redirecting page
+    if (isset($_GET['message'])) {
+        $message = $_GET['message'];
         echo '
         <div class="message">
             <span>' . $message . '</span>
         </div>
         <script>
-        setTimeout(function() {
-            var messages = document.getElementsByClassName("message");
-            while (messages[0]) {
-                messages[0].remove();
-            }
-        }, 5000); // 5 seconds
+            setTimeout(function() {
+                var messages = document.getElementsByClassName("message");
+                while (messages[0]) {
+                    messages[0].remove();
+                }
+            }, 5000); // 5 seconds
         </script>
         ';
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,8 +102,7 @@ if (isset($message)) {
                         <form action="" method="POST">
                             <input type="hidden" name="order_id" value="<?= $fetch_orders['id']; ?>">
                             <select name="payment_status" class="drop-down">
-                                <option value="" selected disabled><?= $fetch_orders['payment_status']; ?></option>
-                                <option value="pending">Pending</option>
+                                <option value="" disabled><?= $fetch_orders['payment_status'];?></option>
                                 <option value="completed">Completed</option>
                             </select>
                             <div class="flex-btn">

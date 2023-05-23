@@ -27,14 +27,14 @@ if (isset($_POST['add-product'])) {
             header('location:home.php?display=products');
         } else {
             if ($image_size > 2000000) {
-                $message[] = 'image size is too large';
+                $message = 'image size is too large';
             } else {
                 move_uploaded_file($image_tmp_name, $image_folder);
 
                 $sqlInsert = "INSERT INTO products (name, category, price, image, description) VALUES ('$prodName', '$category', '$price', '$image', '$description')";
                 $result = mysqli_query($conn, $sqlInsert);
-                $message[] = 'new product added!';
-                header('location:home.php?display=products');
+                $message = 'New product added!';
+                header('location: home.php?display=products&message=' . urlencode($message));
             }
         }
     }
@@ -52,7 +52,7 @@ if (isset($message)) {
     foreach ($message as $message) {
         echo '
         <div class="message">
-            <span class="fw-medium">' . $message . '</span>
+            <span>' . $message . '</span>
         </div>
         <script>
         setTimeout(function() {
@@ -66,6 +66,23 @@ if (isset($message)) {
     }
 }
 
+if (isset($_GET['message'])) {
+    $message = $_GET['message'];
+    echo '
+    <div class="message">
+        <span>' . $message . '</span>
+    </div>
+    <script>
+        setTimeout(function() {
+            var messages = document.getElementsByClassName("message");
+            while (messages[0]) {
+                messages[0].remove();
+            }
+        }, 5000); // 5 seconds
+    </script>
+    ';
+    }
+
 # DELETE PRODUCTS FROM DATABASE AND IMAGE FOLDER (LOCAL STORAGE)
 
 if (isset($_GET['delete'])) {
@@ -78,7 +95,8 @@ if (isset($_GET['delete'])) {
     unlink('../assets/images/' . $filename['image']);
     $deleteQuery = "DELETE FROM products WHERE product_ID = $id";
     $result = mysqli_query($conn, $deleteQuery);
-    header('location:home.php?display=products');
+    $message = 'Product Deleted!';
+    header('location: home.php?display=products&message=' . urlencode($message));
 
     # ADD DELETE QUERY FOR ADD TO CART...
 

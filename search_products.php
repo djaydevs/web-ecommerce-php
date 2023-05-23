@@ -7,7 +7,8 @@
      }else{
         $user_id = '';
      };
-
+    
+    include 'components/add_to_cart.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +28,6 @@
 <body>
     <?php include 'components/loading.php'; ?>
     <?php include 'components/main_header.php'; ?>
-
     <section class="search-form">
         <form method="post" action="">
             <input type="text" name="search_box" placeholder="Search here..." class="box">

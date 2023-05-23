@@ -25,7 +25,7 @@
             ?>
             <ul class="nav-list-icons">
                 <li>
-                    <a class="transition" href="search_orders.php">
+                    <a class="transition" href="search_products.php">
                         <span class="icons | material-icons-outlined md-30">search</span>
                     </a>
                 </li>
