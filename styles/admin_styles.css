@@ -1,5 +1,10 @@
 @import url("props_resets.css");
 
+body {
+  position: fixed;
+  /* overflow: hidden; */
+}
+
 /************* GRID CONTAINER *************/
 .container {
   background-color: var(--clr-neutral-100);

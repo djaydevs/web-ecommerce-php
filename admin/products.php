@@ -24,7 +24,7 @@ if (isset($_POST['add-product'])) {
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
             $message[] = "Products already exists !";
-            header('location:products.php');
+            header('location:home.php?display=products');
         } else {
             if ($image_size > 2000000) {
                 $message[] = 'image size is too large';
@@ -34,7 +34,7 @@ if (isset($_POST['add-product'])) {
                 $sqlInsert = "INSERT INTO products (name, category, price, image, description) VALUES ('$prodName', '$category', '$price', '$image', '$description')";
                 $result = mysqli_query($conn, $sqlInsert);
                 $message[] = 'new product added!';
-                header('location:products.php');
+                header('location:home.php?display=products');
             }
         }
     }
@@ -78,7 +78,7 @@ if (isset($_GET['delete'])) {
     unlink('../assets/images/' . $filename['image']);
     $deleteQuery = "DELETE FROM products WHERE product_ID = $id";
     $result = mysqli_query($conn, $deleteQuery);
-    header('location:products.php');
+    header('location:home.php?display=products');
 
     # ADD DELETE QUERY FOR ADD TO CART...
 

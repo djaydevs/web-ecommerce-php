@@ -26,7 +26,7 @@ if (!isset($admin_id)) {
   <link rel="stylesheet" type="text/css" href="../styles/admin_styles.css ?v=<?php echo time(); ?>">
   <script src="https://kit.fontawesome.com/8eb0534a39.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <title>Admin - Dashboard</title>
+  <title>BURPGER - Admin</title>
 </head>
 
 <body>
@@ -47,8 +47,9 @@ if (!isset($admin_id)) {
 
         switch ($display) {
           case 'dashboard':
-            header("Location: " . $_SERVER['PHP_SELF']); //refresh the page
-            exit();
+            include 'dashboard.php';
+            // header("Location: " . $_SERVER['PHP_SELF']); //refresh the page
+            // exit();
             break;
           case 'orders':
             include 'orders.php';

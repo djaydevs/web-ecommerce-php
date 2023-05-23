@@ -51,21 +51,22 @@ include 'components/add_to_cart.php';
             </section>
             <!-- CATEGORY SECTION -->
             <section class="home-category | padding-block-50 container" id="menu">
-
-                <h1 class="title">Categories</h1>
-
+                <h2 class="title | fs-secondary-heading">Categories</h2>
                 <div class="box-container">
-                    <a href="category.php?category=Burger" class="box">
-                        <img src="assets/images/burger.png" alt="">
-                        <h3>Burger Club</h3>
+                    <a href="category.php?category=Fries" class="box transition">
+                        <img src="assets/images/cat-fries.png" alt="">
+                        <h3 class="fs-third-heading fw-semi-bold">Fries</h3>
+                        <p>Enjoy our crispy and golden fries made from the finest potatoes, seasoned to perfection</p>
                     </a>
-                    <a href="category.php?category=Fries" class="box">
-                        <img src="assets/images/french-fries.png" alt="">
-                        <h3>Combo Meals</h3>
+                    <a href="category.php?category=Burger" class="center-box transition">
+                        <img src="assets/images/cat-burger.png" alt="">
+                        <h3 class="fs-third-heading fw-semi-bold">Burger Club</h3>
+                        <p>Indulge in mouthwatering burgers crafted with juicy beef patties or plant-based alternatives, topped with fresh ingredients and served on toasted buns</p>
                     </a>
-                    <a href="category.php?category=Drinks" class="box">
-                        <img src="assets/images/drink.png" alt="">
-                        <h3>Fries Club</h3>
+                    <a href="category.php?category=Drinks" class="box transition">
+                        <img src="assets/images/cat-drinks.png" alt="">
+                        <h3 class="fs-third-heading fw-semi-bold">Drinks</h3>
+                        <p>Quench your thirst with our refreshing selection of customizable drinks</p>
                     </a>
                 </div>
             </section>
@@ -134,7 +135,6 @@ include 'components/add_to_cart.php';
                             </div>
                         </div>
                     </div>
-
                     <form action="" method="POST">
                         <h3 class="third-heading fw-medium">Contact Us</h3>
                         <input type="text" name="name" maxlength="50" class="box" placeholder="Name" required>
