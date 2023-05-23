@@ -1017,3 +1017,284 @@ footer {
       grid-auto-columns: 1fr;
     }
 }
+
+ /* about */
+ .heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    border-bottom: var(--border);
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px;
+ }
+ 
+ .heading h1{
+    font-size: 1.5rem;
+    color: var(--black);
+    text-transform: capitalize;
+ }
+
+ .view-post .row{
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+ }
+ 
+ .view-post .row .col{
+    flex: 1 1 40rem;
+ }
+ 
+ .view-post .row .col .image{
+    height: 10rem;
+    border-radius: .5rem;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
+ .view-post .row .col .title{
+    font-size: 2rem;
+    color: var(--black);
+ }
+ 
+ .view-post .row .col .flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    align-items: center;
+    justify-content: space-evenly;
+ }
+ 
+ .view-post .row .col .flex .total-reviews{
+    text-align: center;
+ }
+ 
+ .view-post .row .col .flex .total-reviews h3{
+    font-size: 4rem;
+    color: var(--black);
+ }
+ 
+ .view-post .row .col .flex .total-reviews i{
+    font-size: 2rem;
+ }
+ 
+ .view-post .row .col .flex .total-reviews p{
+    font-size: 1rem;
+    color: var(--light-color);
+    padding-top: 1rem;
+ }
+ 
+ 
+ .view-post .row .col .flex .total-ratings{
+    font-size: 1rem;
+ }
+ 
+ .view-post .row .col .flex .total-ratings p{
+    padding: .3rem 0;
+ }
+ 
+ .view-post .row .col .flex .total-ratings p i{
+    color: var(--orange);
+ }
+ 
+ .view-post .row .col .flex .total-ratings p span{
+    color: var(--light-color);
+ }
+ 
+ .reviews-container .box-container{
+    display: grid;
+    row-gap: 3rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    border-radius: .5rem;
+    padding: 2rem;
+    width: 80%;
+    margin: auto;
+ }
+ 
+ .reviews-container .box-container .box{
+    border-bottom: var(--border);
+    overflow-x: hidden;
+    padding-bottom: 1.5rem;
+    position: relative;
+ }
+ 
+ .reviews-container .box-container .box .user{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+ }
+ 
+ .reviews-container .box-container .box .user img{
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    object-fit: cover;
+ }
+ 
+ .reviews-container .box-container .box .user h3{
+    font-size: 2rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 4.3rem;   
+ }
+ 
+ .reviews-container .box-container .box .user p{
+    font-size: .8rem;
+    color: var(--black);
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    padding-bottom: .3rem;
+ }
+ 
+ .reviews-container .box-container .box .user span{
+    color: var(--light-color);
+    font-size: .8rem;
+ }
+ 
+ .reviews-container .box-container .box .ratings{
+    position: absolute;
+    top: 0; right: 0;
+    z-index: 10;
+ }
+ 
+ .reviews-container .box-container .box .ratings p{
+    border-radius: .5rem;
+    color: var(--white);
+    padding: .0rem 1rem;
+ }
+ 
+ .reviews-container .box-container .box .ratings p span{
+    font-size: 1rem;
+ }
+ 
+ .reviews-container .box-container .box .ratings p i{
+    font-size: 1rem;
+ }
+ 
+ .reviews-container .box-container .box .title-review{
+    font-size: 1.5rem;
+    color: var(--black);
+    padding: .5rem 0;
+    text-align: left;
+ }
+ 
+ .reviews-container .box-container .box .description{
+    font-size: 1rem;
+    white-space: pre-line;
+    color: var(--light-color);
+    line-height: 1.5;
+ }
+
+ /* about add review */
+ .account-form form{
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border: var(--border);
+    border-radius: .5rem;
+    max-width: 25rem;
+    margin: 0 auto;
+    margin-top: 30px;
+ }
+ 
+ .account-form form h3{
+    padding-bottom: .6rem;
+    font-size: 1rem;
+    color: var(--black);
+    text-transform: capitalize;
+    text-align: center;
+ }
+ 
+ .account-form form p{
+    padding-top: .6rem;
+    font-size: .8rem;
+    color: var(--light-color);
+ }
+ 
+ .account-form form p span{
+    color: var(--red);
+ }
+ 
+ .account-form form .box{
+    width: 100%;
+    border-radius: .2rem;
+    padding: .6rem;
+    font-size: .6rem;
+    color: var(--black);
+    background-color: var(--light-bg);
+ }
+ 
+ .account-form form textarea{
+    height: 8rem;
+    resize: none;
+ }
+ 
+ .account-form form .image{
+    height: 20rem;
+    width: 100%;
+    object-fit: contain;
+    margin-top: .5rem;
+ }
+ 
+ .account-form form .link{
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--light-color);
+ }
+ 
+ .account-form form .link a{
+    color: var(--red);
+ }
+ 
+ .account-form form .link a:hover{
+    text-decoration: underline;
+ }
+
+ .btn-submit,
+ .btn-back{
+    display: block;
+    height: 2rem;
+    margin: 1rem;
+ }
+ .btn-back{
+    background-color: var(--red);
+    color:var(--white);
+    text-align: center;
+    padding: 3px;
+ }
+ .btn-submit{
+    background-color: var(--yellow);
+    width: 90%;
+    margin-top: 30px;
+ }
+
+ .flex-btn{
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+ }
