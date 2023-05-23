@@ -31,7 +31,7 @@ if (!isset($admin_id)) {
 
 <body>
   <!-- GRID CONTAINER -->
-  <div class="container">
+  <div class="admin-container">
     <?php include '../components/admin_sidebar.php'; // sidebar links 
     ?>
     <main>

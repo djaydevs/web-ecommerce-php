@@ -11,13 +11,19 @@ body {
     overflow: hidden;
 }
 
-.form-logo {
+.form-logo,
+.adminform-logo {
     margin: 0 auto;
 }
 
-.form-logo a {
+.form-logo a,
+.adminform-logo a {
     font-size: var(--fs-1000);
     color: var(--clr-primary-color);
+}
+
+.adminform-logo a {
+    font-size: var(--fs-900);
 }
 
 .grid-container {
@@ -160,6 +166,10 @@ button {
 
     .form-logo a {
         font-size: var(--fs-800);
+    }
+
+    .adminform-logo a {
+        font-size: var(--fs-700);
     }
 
     .form-content h2,

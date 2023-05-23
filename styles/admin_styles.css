@@ -6,7 +6,7 @@ body {
 }
 
 /************* GRID CONTAINER *************/
-.container {
+.admin-container {
   background-color: var(--clr-neutral-100);
   display: grid;
   margin: 0 auto;

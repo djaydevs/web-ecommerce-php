@@ -1,5 +1,21 @@
 @import url('props_resets.css');
 
+.container {
+    --max-width: 1110px;
+    --container-padding: 1rem;
+  
+    width: min(var(--max-width), 100% - (var(--container-padding) * 2));
+    margin-inline: auto;
+}
+
+.even-columns {
+    display: grid;
+    gap: 2rem;
+}
+
+:where(.flow :not(:first-child)) {
+    margin-top: 3em;
+}
 /* LOADING DIV */
 .loading-page {
     position: absolute;
@@ -987,5 +1003,12 @@ footer {
     }
     #copyright p {
         font-size: var(--fs-100);
+    }
+}
+
+@media (min-width: 48rem) {
+    .even-columns {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
     }
 }
