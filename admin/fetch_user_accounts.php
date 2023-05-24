@@ -18,7 +18,7 @@ if (mysqli_num_rows($query_run) > 0) {
             <td><?= $row['email']; ?></td>
             <td><?= $row['number']; ?></td>
             <td>
-                <button class="delete-btn">
+                <button class="btn transition | delete-btn-account">
                     <a href="customer_account.php?deleteid=<?php echo $row['id']; ?>" onclick="return confirm('Delete this account?');">Delete</a>
                 </button>
             </td>
