@@ -1,4 +1,8 @@
 <?php 
+
+     if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     include '../components/connection.php';
 
     $admin_id = $_SESSION['admin_id'];
