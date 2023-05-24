@@ -37,12 +37,10 @@ if (!isset($admin_id)) {
     ?>
     <main>
       <div class="top">
-        <button class="btn">
+        <h3 class="fs-third-heading fw-semi-bold">Welcome back, Admin!</h3>
+        <button class="btn transition">
           <span id="btn-menu" class="material-icons-sharp md-35">menu</span>
         </button>
-        <div class="admin-profile">
-          <h3>Welcome back, Admin!</h3>
-        </div>
       </div>
       <?php
       // switch between sidebar links and display contents to this main section

@@ -169,7 +169,7 @@ if (isset($_POST['update_product'])) {
                     </div>
                 </div>
                 <textarea name="product-details" class="box" cols="25" rows="5" required placeholder="Product Details"></textarea>
-                <input type="submit" class="btn transition primary-btn" value="Add Products" name="add-product">
+                <input type="submit" class="btn transition primary-btn" value="Add Product" name="add-product">
             </form>
         </section>
         <!-- SHOW PRODUCTS -->
@@ -178,22 +178,24 @@ if (isset($_POST['update_product'])) {
         $rslt = mysqli_query($conn, $select);
         ?>
         <section class="show-products">
+            <!-- <h3 class="fs-third-heading fw-medium">Products</h3> -->
             <div class="box-container">
-
                 <?php
                 if ($rslt == true) {
                     if ($rslt->num_rows > 0) {
                         while ($row = $rslt->fetch_assoc()) {
                 ?>
-                            <div class="box">
-                                <div class="price">&#8369;<?php echo $row['price']; ?>/-</div>
-                                <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
-                                <div class="name"><?php echo $row['name']; ?></div>
-                                <div class="category"><?php echo $row['category']; ?></div>
-                                <div class="details"><?php echo $row['description']; ?></div>
+                            <div class="show-box">
+                                <div class="box-flow">
+                                    <div class="price">&#8369; <?php echo $row['price']; ?></div>
+                                    <img src="../assets/images/<?php echo $row['image']; ?>" alt="">
+                                    <p class="name | fw-medium"><?php echo $row['name']; ?></p>
+                                    <p class="category"><?php echo $row['category']; ?></p>
+                                    <p class="details"><?php echo $row['description']; ?></p>
+                                </div>
                                 <div class="flex-btn">
-                                    <button name="update" onclick="openForm(<?php echo $row['product_ID']; ?>)">Update</button>
-                                    <a href="products.php?delete=<?php echo $row['product_ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
+                                    <button class="btn transition primary-btn fw-medium" name="update" onclick="openForm(<?php echo $row['product_ID']; ?>)">Update</button>
+                                    <a class="btn transition secondary-btn fw-medium" href="products.php?delete=<?php echo $row['product_ID']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">Delete</a>
                                 </div>
                             </div>
 
@@ -275,4 +277,5 @@ if (isset($_POST['update_product'])) {
         });
     </script>
 </body>
+
 </html>
