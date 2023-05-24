@@ -1,58 +1,57 @@
 <?php
-include 'components/connection.php';
+   session_start();
+   include 'components/connection.php';
 
-session_start();
-
-if (isset($_SESSION['user_id'])) {
-   $user_id = $_SESSION['user_id'];
-} else {
-   $user_id = '';
-   header('location: index.php');
-};
+   if (isset($_SESSION['user_id'])) {
+      $user_id = $_SESSION['user_id'];
+   } else {
+      $user_id = '';
+      header('location: index.php');
+   };
 
 
-if (isset($_POST['delete_item'])) {
-   $id = $_POST['cid'];
-   $item = "DELETE FROM cart WHERE id = '$id'";
-   $res = mysqli_query($conn, $item);
-   $message[] = 'Items deleted from cart!';
-}
-
-if (isset($_POST['delete_all'])) {
-   $delete_cart = "DELETE FROM cart WHERE user_id = '$user_id'";
-   $res = mysqli_query($conn, $delete_cart);
-   $message[] = 'All items deleted from cart!';
-}
-
-if (isset($_POST['update_qty'])) {
-   $cart_id = $_POST['cid'];
-   $qty = mysqli_real_escape_string($conn, $_POST['qty']);
-   $update_qty = "UPDATE cart SET quantity = '$qty' WHERE id = $cart_id";
-   $res = mysqli_query($conn, $update_qty);
-   $message[] = 'Items quantity updated!';
-}
-
-$grand_total = 0;
-
-# ALERT MESSAGE
-
-if (isset($message)) {
-   foreach ($message as $message) {
-      echo '
-        <div class="message">
-            <span class="fw-medium">' . $message . '</span>
-        </div>
-        <script>
-        setTimeout(function() {
-            var messages = document.getElementsByClassName("message");
-            while (messages[0]) {
-                messages[0].remove();
-            }
-        }, 5000); // 5 seconds
-        </script>
-        ';
+   if (isset($_POST['delete_item'])) {
+      $id = $_POST['cid'];
+      $item = "DELETE FROM cart WHERE id = '$id'";
+      $res = mysqli_query($conn, $item);
+      $message[] = 'Items deleted from cart!';
    }
-}
+
+   if (isset($_POST['delete_all'])) {
+      $delete_cart = "DELETE FROM cart WHERE user_id = '$user_id'";
+      $res = mysqli_query($conn, $delete_cart);
+      $message[] = 'All items deleted from cart!';
+   }
+
+   if (isset($_POST['update_qty'])) {
+      $cart_id = $_POST['cid'];
+      $qty = mysqli_real_escape_string($conn, $_POST['qty']);
+      $update_qty = "UPDATE cart SET quantity = '$qty' WHERE id = $cart_id";
+      $res = mysqli_query($conn, $update_qty);
+      $message[] = 'Items quantity updated!';
+   }
+
+   $grand_total = 0;
+
+   # ALERT MESSAGE
+
+   if (isset($message)) {
+      foreach ($message as $message) {
+         echo '
+         <div class="message">
+               <span class="fw-medium">' . $message . '</span>
+         </div>
+         <script>
+         setTimeout(function() {
+               var messages = document.getElementsByClassName("message");
+               while (messages[0]) {
+                  messages[0].remove();
+               }
+         }, 5000); // 5 seconds
+         </script>
+         ';
+      }
+   }
 
 ?>
 
@@ -115,14 +114,14 @@ if (isset($message)) {
 
             <div class="cart-total">
                <p>cart total : <span>&#8369;<?= $grand_total; ?></span></p>
-               <a href="checkout.php" class="btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">proceed to checkout</a>
+               <a href="checkout.php" class="p-btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>">proceed to checkout</a>
             </div>
 
             <div class="more-btn">
                <form action="" method="post">
                   <button type="submit" class="delete-btn <?= ($grand_total > 1) ? '' : 'disabled'; ?>" name="delete_all" onclick="return confirm('delete all from cart?');">delete all</button>
                </form>
-               <a href="index.php" class="btn">continue shopping</a>
+               <a href="index.php" class="p-btn">continue shopping</a>
             </div>
 
          </section>

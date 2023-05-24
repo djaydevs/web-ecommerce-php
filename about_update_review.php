@@ -1,44 +1,43 @@
 <?php
 
-include 'components/connection.php';
+    session_start();
+    include 'components/connection.php';
 
-session_start();
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    } else {
+        $user_id = '';
+    };
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    $user_id = '';
-};
+    function create_unique_id() {
+        // Generate a unique ID using a preferred method, such as UUID or timestamp-based ID
+        // Here's an example using a timestamp-based ID
+        $id = uniqid();
+        return $id;
+    }
 
-function create_unique_id() {
-    // Generate a unique ID using a preferred method, such as UUID or timestamp-based ID
-    // Here's an example using a timestamp-based ID
-    $id = uniqid();
-    return $id;
-}
+    if(isset($_GET['get_id'])){
+        $get_id = $_GET['get_id'];
+    }else{
+        $get_id = '';
+    }
+    
+    if(isset($_POST['submit'])){
 
-if(isset($_GET['get_id'])){
-    $get_id = $_GET['get_id'];
-}else{
-    $get_id = '';
-}
- 
-if(isset($_POST['submit'])){
+        $title = $_POST['title'];
+        $title = filter_var($title, FILTER_SANITIZE_STRING);
+        $description = $_POST['description'];
+        $description = filter_var($description, FILTER_SANITIZE_STRING);
+        $rating = $_POST['rating'];
+        $rating = filter_var($rating, FILTER_SANITIZE_STRING);
+    
+        $update_review = $conn->prepare("UPDATE `reviews` SET rating = ?, title = ?, description = ? WHERE id = ?");
+        $update_review->bind_param("ssss", $rating, $title, $description, $get_id);
+        $update_review->execute();
 
-    $title = $_POST['title'];
-    $title = filter_var($title, FILTER_SANITIZE_STRING);
-    $description = $_POST['description'];
-    $description = filter_var($description, FILTER_SANITIZE_STRING);
-    $rating = $_POST['rating'];
-    $rating = filter_var($rating, FILTER_SANITIZE_STRING);
- 
-    $update_review = $conn->prepare("UPDATE `reviews` SET rating = ?, title = ?, description = ? WHERE id = ?");
-    $update_review->bind_param("ssss", $rating, $title, $description, $get_id);
-    $update_review->execute();
+    }
 
-}
-
-include 'components/add_to_cart.php';
+    include 'components/add_to_cart.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

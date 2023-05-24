@@ -1,9 +1,9 @@
 <?php
-
-require '../components/connection.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+require '../components/connection.php';
 
 // Fetch new orders from the database
 $select_orders = $conn->prepare("SELECT * FROM `orders`");

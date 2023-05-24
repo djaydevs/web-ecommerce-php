@@ -1,42 +1,41 @@
 <?php
 
-include 'components/connection.php';
+    session_start();
+    include 'components/connection.php';
 
-session_start();
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    } else {
+        $user_id = '';
+    };
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    $user_id = '';
-};
+    if (isset($_GET['get_id'])) {
+        $get_id = $_GET['get_id'];
+    } else {
+        $get_id = '';
+    };
 
-if (isset($_GET['get_id'])) {
-    $get_id = $_GET['get_id'];
-} else {
-    $get_id = '';
-};
+    if(isset($_POST['delete_review'])){
 
-if(isset($_POST['delete_review'])){
+        $delete_id = $_POST['delete_id'];
+        $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
 
-    $delete_id = $_POST['delete_id'];
-    $delete_id = filter_var($delete_id, FILTER_SANITIZE_STRING);
-
-    $verify_delete = $conn->prepare("SELECT * FROM `reviews` WHERE id = ?");
-    $verify_delete->bind_param("s", $delete_id);
-    $verify_delete->execute();
-    $verify_delete_result = $verify_delete->get_result();
-    
-    if($verify_delete_result->num_rows > 0){
-        $delete_review = $conn->prepare("DELETE FROM `reviews` WHERE id = ?");
-        $delete_review->bind_param("s", $delete_id);
-        $delete_review->execute();
-        $success_msg[] = 'Review deleted!';
-    }else{  
-        $warning_msg[] = 'Review already deleted!';
+        $verify_delete = $conn->prepare("SELECT * FROM `reviews` WHERE id = ?");
+        $verify_delete->bind_param("s", $delete_id);
+        $verify_delete->execute();
+        $verify_delete_result = $verify_delete->get_result();
+        
+        if($verify_delete_result->num_rows > 0){
+            $delete_review = $conn->prepare("DELETE FROM `reviews` WHERE id = ?");
+            $delete_review->bind_param("s", $delete_id);
+            $delete_review->execute();
+            $success_msg[] = 'Review deleted!';
+        }else{  
+            $warning_msg[] = 'Review already deleted!';
+        }
     }
-}
 
-include 'components/add_to_cart.php';
+    include 'components/add_to_cart.php';
 ?>
 
 <!DOCTYPE html>

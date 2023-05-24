@@ -4,11 +4,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
+session_start();
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-session_start();
+
 require 'components/connection.php';
 $message = "";
 
@@ -65,8 +65,8 @@ if (isset($_POST['register'])) {
                     //Content
                     $mail->isHTML(true);                                  //Set email format to HTML
                     $mail->Subject = 'no reply';
-                    $mail->Body    = 'Here is the verification link  <b><a href="http://localhost/web-ecommerce-php/login.php?verification=' . $code . '">http://localhost/web-ecommerce-php/login.php??verification=' . $code . '</a></b>';
-
+                    $mail->Body    = 'Here is the verification link  <b><a href="https://burpger.000webhostapp.com/login.php?verification=' . $code . '">https://burpger.000webhostapp.com/login.php?verification=' . $code . '</a></b>';
+                        https://burpger.000webhostapp.com/web-ecommerce-php/login.php
                     $mail->send();
                     echo 'Message has been sent';
                 } catch (Exception $e) {
@@ -152,7 +152,7 @@ if (isset($_POST['register'])) {
                         <input type="password" class="password" name="password" placeholder="Enter your password" required>
                         <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6Lfj5hsmAAAAAN67rJgsNY-OYww_rzHIJKytK-lc"></div>
+                    <div class="g-recaptcha" data-sitekey="6LclezUmAAAAAO5miMn6U4o7Lm9vJXQOFpXog050"></div>
                     <button name="register" class="btn transition primary-btn" id="save" type="submit">Register</button>
                 </form>
                 <p>Already have an account? <a class="transition fw-medium" href="login.php">Login</a></p>

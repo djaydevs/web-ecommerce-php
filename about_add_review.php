@@ -1,61 +1,59 @@
 <?php
+    session_start();
+    include 'components/connection.php';
 
-include 'components/connection.php';
+    if (isset($_SESSION['user_id'])) {
+        $user_id = $_SESSION['user_id'];
+    } else {
+        $user_id = '';
+    };
 
-session_start();
-
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    $user_id = '';
-};
-
-function create_unique_id() {
-    // Generate a unique ID using a preferred method, such as UUID or timestamp-based ID
-    // Here's an example using a timestamp-based ID
-    $id = uniqid();
-    return $id;
-}
-
-if(isset($_GET['get_id'])){
-    $get_id = $_GET['get_id'];
-}else{
-    $get_id = '';
-}
- 
-if(isset($_POST['submit'])){
- 
-    if($user_id != ''){
- 
-       $id = create_unique_id();
-       $title = $_POST['title'];
-       $title = filter_var($title, FILTER_SANITIZE_STRING);
-       $description = $_POST['description'];
-       $description = filter_var($description, FILTER_SANITIZE_STRING);
-       $rating = $_POST['rating'];
-       $rating = filter_var($rating, FILTER_SANITIZE_STRING);
- 
-       $verify_review = $conn->prepare("SELECT * FROM `reviews` WHERE post_id = ? AND user_id = ?");
-       $verify_review->bind_param("ii", $get_id, $user_id);
-       $verify_review->execute();
-       $verify_review_result = $verify_review->get_result();
- 
-       if($verify_review_result->num_rows > 0){
-          $warning_msg[] = 'Your review already added!';
-       }else{
-          $add_review = $conn->prepare("INSERT INTO `reviews`(id, post_id, user_id, rating, title, description) VALUES(?,?,?,?,?,?)");
-          $add_review->bind_param("siisss", $id, $get_id, $user_id, $rating, $title, $description);
-          $add_review->execute();
-          $success_msg[] = 'Review added!';
-       }
- 
-    }else{
-       $warning_msg[] = 'Please login first!';
+    function create_unique_id() {
+        // Generate a unique ID using a preferred method, such as UUID or timestamp-based ID
+        // Here's an example using a timestamp-based ID
+        $id = uniqid();
+        return $id;
     }
-}
- 
 
-include 'components/add_to_cart.php';
+    if(isset($_GET['get_id'])){
+        $get_id = $_GET['get_id'];
+    }else{
+        $get_id = '';
+    }
+    
+    if(isset($_POST['submit'])){
+    
+        if($user_id != ''){
+    
+        $id = create_unique_id();
+        $title = $_POST['title'];
+        $title = filter_var($title, FILTER_SANITIZE_STRING);
+        $description = $_POST['description'];
+        $description = filter_var($description, FILTER_SANITIZE_STRING);
+        $rating = $_POST['rating'];
+        $rating = filter_var($rating, FILTER_SANITIZE_STRING);
+    
+        $verify_review = $conn->prepare("SELECT * FROM `reviews` WHERE post_id = ? AND user_id = ?");
+        $verify_review->bind_param("ii", $get_id, $user_id);
+        $verify_review->execute();
+        $verify_review_result = $verify_review->get_result();
+    
+        if($verify_review_result->num_rows > 0){
+            $warning_msg[] = 'Your review already added!';
+        }else{
+            $add_review = $conn->prepare("INSERT INTO `reviews`(id, post_id, user_id, rating, title, description) VALUES(?,?,?,?,?,?)");
+            $add_review->bind_param("siisss", $id, $get_id, $user_id, $rating, $title, $description);
+            $add_review->execute();
+            $success_msg[] = 'Review added!';
+        }
+    
+        }else{
+        $warning_msg[] = 'Please login first!';
+        }
+    }
+    
+
+    include 'components/add_to_cart.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

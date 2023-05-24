@@ -1,10 +1,11 @@
 <?php
 
-    require '../components/connection.php';
-    // Check if session is already active before staring new session
-    if (session_status() == PHP_SESSION_NONE) {
+     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
+    require '../components/connection.php';
+    // Check if session is already active before staring new session
+   
 
     $admin_id = $_SESSION['admin_id'];
     if (!isset($admin_id)) {

@@ -1,9 +1,10 @@
 <?php
 
-require '../components/connection.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+require '../components/connection.php';
+
 
 $query = "SELECT * FROM users";
 $query_run = mysqli_query($conn, $query);
