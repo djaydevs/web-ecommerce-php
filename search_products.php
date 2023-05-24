@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="https://kit.fontawesome.com/8eb0534a39.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Search Orders</title>
 </head>
@@ -30,7 +31,7 @@
     <?php include 'components/main_header.php'; ?>
     <section class="search-form">
         <form method="post" action="">
-            <input type="text" name="search_box" placeholder="Search here..." class="box">
+            <input type="text" name="search_box" placeholder="Search product here.." class="box">
             <button type="submit" name="search_btn" class="fas fa-search"></button>
         </form>
     </section>
@@ -75,5 +76,6 @@
    </div>
 <script src="./js/main-container.js"></script>
 <script src="js/script.js"></script>
+<script src="./js/cart.js"></script>
 </body>
 </html>

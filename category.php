@@ -85,6 +85,7 @@ include 'components/add_to_cart.php';
    </div> -->
 
     </section>
+    <script src="./js/main-container.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

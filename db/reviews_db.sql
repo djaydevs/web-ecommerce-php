@@ -38,12 +38,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `image`) VALUES
-('h12FAnxY6JoXb51iDpda', '01 example post title', 'post_1.webp'),
-('sRKX0vSREJbBzO07wM1H', '02 example post title', 'post_2.webp'),
-('G6zDaxTTS0fV5UT4BQ46', '03 example post title', 'post_3.webp'),
-('6zQRsklaYIO38cLIgYZN', '04 example post title', 'post_4.webp'),
-('mMj2FWPRVWZPsfOsjSUL', '05 example post title', 'post_5.webp'),
-('hK2tgabAaK1c1FAak6UW', '06 example post title', 'post_6.webp');
+('h12FAnxY6JoXb51iDpda', '01 example post title', 'post_1.webp');
 
 -- --------------------------------------------------------
 
@@ -62,19 +57,6 @@ CREATE TABLE `reviews` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `id` varchar(20) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `image` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

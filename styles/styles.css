@@ -449,7 +449,7 @@ header .profile .name{
     gap:1rem;
     flex-flow: column;
     background-color: var(--clr-primary-color);
-    min-height: 15em;
+    min-height: 7rem;
  }
 
 .top-header h2 {
@@ -619,12 +619,11 @@ header .profile .name{
  }
 
 /* Style for checkout */
-
 .checkout form{
     max-width: 30rem;
-    margin: 50px auto;
+    margin: 30px auto;
     border:var(--border);
-    padding:2rem;
+    padding: 2rem;
  }
  
  .checkout form h3{
@@ -633,7 +632,6 @@ header .profile .name{
     padding: 0.5rem 0;
     color:var(--black);
     margin-top: 7px;
-    
  }
  
  .checkout form .cart-items{
@@ -1297,4 +1295,40 @@ footer {
     column-gap: 1.5rem;
     justify-content: space-between;
     flex-wrap: wrap;
+ }
+
+ /* Menu style */
+ .heading-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+    flex-flow: column;
+    background-color: var(--black);
+    padding: 10px 0;
+    margin-bottom: 10px;
+ }
+    
+ .heading-menu h3{
+    font-size: 2rem;
+    color:var(--white);
+    text-transform: capitalize;
+ }
+
+ h1{
+    font-size: 2rem;
+ }
+ 
+ .heading-menu p{
+    font-size: 1.5rem;
+    color:var(--light-color);
+ }
+ 
+ .heading-menu p a{
+    color:var(--yellow);
+ }
+ 
+ .heading-menu p a:hover{
+    text-decoration: underline;
+    color:var(--white);
  }
