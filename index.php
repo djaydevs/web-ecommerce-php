@@ -75,7 +75,7 @@ include 'components/add_to_cart.php';
                 <h1 class="title">Fresh menus</h1>
                 <div class="box-container">
                     <?php
-                    $select_products = "SELECT * FROM `products` LIMIT 6";
+                    $select_products = "SELECT * FROM `products` LIMIT 5";
                     $res = mysqli_query($conn, $select_products);
                     if (mysqli_num_rows($res) > 0) {
                         while ($row = $res->fetch_assoc()) {
