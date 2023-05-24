@@ -123,8 +123,8 @@ include 'components/add_to_cart.php';
 
             <div class="row">
                 <div class="col">
-                    <img src="assets/images/burger.png" alt="" class="image">
-                    <h3 class="title">BURGER</h3>
+                    <img src="assets/images/cat-combo.png" alt="" class="image">
+                    <h3 class="title">BURPGER</h3>
                 </div>
                 <div class="col">
                     <div class="flex">
