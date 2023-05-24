@@ -9,7 +9,7 @@
                 <li><span class="btn transition icons | material-icons-outlined md-40" id="close-btn">highlight_off</span></li>
                 <li><a class="transition" href="./">Home</a></li>
                 <li><a class="transition" href="about.php">About</a></li>
-                <li><a class="transition" href="./#menu">Menu</a></li>
+                <li><a class="transition" href="menu.php">Menu</a></li>
                 <li><a class="transition" href="./user_orders.php">Orders</a></li>
                 <li><a class="transition" href="./#contacts">Contacts</a></li>
             </ul>

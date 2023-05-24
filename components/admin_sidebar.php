@@ -30,7 +30,7 @@
             <h3>Customer Account</h3>
         </a>
         <!-- Logout from admin panel -->
-        <a href="admin_logout.php">
+        <a href="admin_logout.php" onclick="return confirm('Are you sure you want to logout ?');">
             <span class="material-icons-sharp">logout</span>
             <h3>Logout</h3>
         </a>
