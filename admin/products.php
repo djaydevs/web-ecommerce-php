@@ -216,8 +216,6 @@ if (isset($_POST['update_product'])) {
     </div>
     <div class="update-form" id="update-form">
         <section class="update-products">
-            <h1 class="title"> UPDATE PRODUCTS </h1>
-
             <!-- FOR DISPLAYING DATA IN UPDATE -->
             <?php
             $update_id = null;
@@ -245,9 +243,9 @@ if (isset($_POST['update_product'])) {
                                 </select>
                                 <textarea name="details" required placeholder="Enter product description" class="box" cols="30" rows="5"><?php echo $row['description']; ?></textarea>
                                 <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
-                                <div class="flex-btn">
-                                    <input type="submit" class="btn" value="Update Product" name="update_product">
-                                    <a href="home.php?display=products" class="option-btn">CANCEL</a>
+                                <div class="flex-btn-update">
+                                    <input type="submit" class="btn transition primary-btn fw-medium" value="Update Product" name="update_product">
+                                    <a href="home.php?display=products" class="btn transition secondary-btn fw-medium">Cancel</a>
                                 </div>
                             </form>
 
