@@ -1,5 +1,5 @@
 <aside id="sidebar">
-    <div class="top">
+    <div class="top-sidebar">
         <div class="logo">
             <i class="fa-solid fa-burger fa-2xl" style="color: #f1a409;"></i>
             <h2 class="logo-text">BURPGER<span>Admin</span></h2>
