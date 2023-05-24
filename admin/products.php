@@ -23,8 +23,7 @@ if (isset($_POST['add-product'])) {
 
     if ($result) {
         if (mysqli_num_rows($result) > 0) {
-            $message = "Products already exists !";
-            header('location: home.php?display=products&message=' . urlencode($message));
+            $message [] = "Products already exists !";
         } else {
             if ($image_size > 2000000) {
                 $message = 'image size is too large';
