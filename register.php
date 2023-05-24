@@ -65,7 +65,7 @@ if (isset($_POST['register'])) {
                     //Content
                     $mail->isHTML(true);                                  //Set email format to HTML
                     $mail->Subject = 'no reply';
-                    $mail->Body    = 'Here is the verification link  <b><a href="https://burpger.000webhostapp.com/login.php?verification=' . $code . '">https://burpger.000webhostapp.com/login.php?verification=' . $code . '</a></b>';
+                    $mail->Body    = 'Here is the verification link  <b><a href="https://burpger-inc.000webhostapp.com/login.php?verification=' . $code . '">https://burpger-inc.000webhostapp.com/login.php?verification=' . $code . '</a></b>';
                     $mail->send();
                     echo 'Message has been sent';
                 } catch (Exception $e) {
@@ -151,7 +151,7 @@ if (isset($_POST['register'])) {
                         <input type="password" class="password" name="password" placeholder="Enter your password" required>
                         <input type="password" class="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6LclezUmAAAAAO5miMn6U4o7Lm9vJXQOFpXog050"></div>
+                    <div class="g-recaptcha" data-sitekey="6LduGDYmAAAAAAnjPRwM2BP3uS_aQxk310GkbsW3"></div>
                     <button name="register" class="btn transition primary-btn" id="save" type="submit">Register</button>
                 </form>
                 <p>Already have an account? <a class="transition fw-medium" href="login.php">Login</a></p>
