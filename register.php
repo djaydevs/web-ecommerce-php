@@ -66,7 +66,6 @@ if (isset($_POST['register'])) {
                     $mail->isHTML(true);                                  //Set email format to HTML
                     $mail->Subject = 'no reply';
                     $mail->Body    = 'Here is the verification link  <b><a href="https://burpger.000webhostapp.com/login.php?verification=' . $code . '">https://burpger.000webhostapp.com/login.php?verification=' . $code . '</a></b>';
-                        https://burpger.000webhostapp.com/web-ecommerce-php/login.php
                     $mail->send();
                     echo 'Message has been sent';
                 } catch (Exception $e) {
